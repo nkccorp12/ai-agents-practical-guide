@@ -106,6 +106,8 @@ Das Single-Agent-Pattern ist die einfachste und grundlegendste Architektur. Ein 
 
 Dieses Pattern eignet sich hervorragend für Aufgaben mit klar definiertem Umfang, die keine Spezialisierung erfordern. Typische Anwendungen sind Rechercheassistenten, einfache Datenanalysen oder Dokumentenzusammenfassungen. Mit dem 1-Million-Token-Kontextfenster von Claude 4.7 Opus oder GPT-5 verschiebt sich die Grenze dieses Pattern deutlich nach oben, sie ist jedoch erst dann erreicht, wenn die Aufgabenkomplexität (nicht nur das reine Tokenvolumen) das effektive Aufmerksamkeitsfenster des Modells übersteigt.
 
+![Abbildung 2.1](../assets/diagrams/abb-2-1.svg)
+
 > *Abbildung 2.1: Single Agent Pattern, ein Modell orchestriert mehrere Werkzeuge*
 
 #### Pattern 2: ReAct (Reason + Act)
@@ -113,6 +115,8 @@ Dieses Pattern eignet sich hervorragend für Aufgaben mit klar definiertem Umfan
 Das ReAct-Pattern erweitert den Single Agent um einen expliziten Denkzyklus: Denken, Handeln, Beobachten, und diese Schleife wiederholen, bis das Ziel erreicht ist. In jeder Iteration formuliert der Agent einen Gedanken (was er als Nächstes tun sollte), führt eine Aktion aus (Werkzeugaufruf) und beobachtet das Ergebnis (Analyse der Antwort).
 
 Der entscheidende Vorteil gegenüber dem einfachen Single Agent liegt in der expliziten Zwischenreflexion. Durch strukturiertes Nachdenken vor jeder Aktion wird die Wahrscheinlichkeit fehlerhafter Entscheidungen erheblich reduziert. Das ReAct-Pattern bildet die Grundlage für viele fortgeschrittene Agenten-Frameworks. In der 2026er Generation profitiert ReAct besonders von Extended-Thinking-Modi (Claude 4.7 Opus, GPT-5), bei denen das Modell vor jeder Aktion einen ausgedehnten internen Denkprozess durchläuft, ohne dass dieser den Output-Token-Verbrauch erhöht.
+
+![Abbildung 2.2](../assets/diagrams/abb-2-2.svg)
 
 > *Abbildung 2.2: ReAct Pattern, iterativer Zyklus aus Denken, Handeln und Beobachten*
 
@@ -124,6 +128,8 @@ Beim Multi-Agent-Parallel-Pattern arbeiten spezialisierte Agenten gleichzeitig a
 
 Dieses Pattern bietet zwei wesentliche Vorteile: Erstens reduziert die parallele Ausführung die Gesamtbearbeitungszeit erheblich. Zweitens können die einzelnen Agenten auf ihre jeweilige Domäne spezialisiert werden, was die Ergebnisqualität steigert. Typische Anwendungen sind die parallele Analyse verschiedener Datenquellen oder die gleichzeitige Bearbeitung verschiedener Dokumentabschnitte.
 
+![Abbildung 2.3](../assets/diagrams/abb-2-3.svg)
+
 > *Abbildung 2.3: Multi-Agent Parallel, Spezialisten arbeiten gleichzeitig*
 
 #### Pattern 4: Iterative Refinement
@@ -131,6 +137,8 @@ Dieses Pattern bietet zwei wesentliche Vorteile: Erstens reduziert die parallele
 Das Iterative-Refinement-Pattern implementiert einen Autor-Lektor-Zyklus. Ein Autor-Agent erstellt einen ersten Entwurf, ein Lektor-Agent bewertet diesen und gibt strukturiertes Feedback. Der Autor überarbeitet daraufhin den Entwurf, und der Prozess wiederholt sich, bis die gewünschte Qualität erreicht ist.
 
 Dieses Pattern ist besonders effektiv bei kreativen oder analytischen Aufgaben, bei denen die erste Version selten optimal ist. Die Trennung von Erstellung und Bewertung erzwingt eine kritische Distanz, die ein einzelner Agent kaum erreichen kann. In der Praxis sind typischerweise zwei bis drei Iterationsrunden ausreichend.
+
+![Abbildung 2.4](../assets/diagrams/abb-2-4.svg)
 
 > *Abbildung 2.4: Iterative Refinement, Autor und Lektor im Verbesserungszyklus*
 
@@ -140,6 +148,8 @@ Die Multi-Agent Loop ähnelt dem Iterative Refinement, fügt jedoch eine explizi
 
 Die Stärke dieses Pattern liegt in der klaren Abbruchbedingung: Der Zyklus läuft nicht endlos, sondern wird durch messbare Qualitätskriterien gesteuert. Das macht das Pattern besonders geeignet für Aufgaben mit klar definierbaren Erfolgsmetriken, etwa Datenvalidierung, Codegenerierung mit Testabdeckung oder die Einhaltung regulatorischer Anforderungen.
 
+![Abbildung 2.5](../assets/diagrams/abb-2-5.svg)
+
 > *Abbildung 2.5: Multi-Agent Loop, Wiederholung bis Abbruchbedingung erfüllt*
 
 #### Pattern 6: Review and Critique
@@ -147,6 +157,8 @@ Die Stärke dieses Pattern liegt in der klaren Abbruchbedingung: Der Zyklus läu
 Das Review-and-Critique-Pattern stellt Sicherheit und Zuverlässigkeit in den Mittelpunkt. Ein Generator-Agent erstellt Inhalte, während ein spezialisierter Kritiker-Agent diese systematisch auf Fehler, Risiken und Inkonsistenzen prüft. Ergebnisse gelten erst nach expliziter Freigabe durch den Kritiker als abgeschlossen.
 
 Dieses Pattern ist unverzichtbar in Domänen, in denen Fehler schwerwiegende Konsequenzen haben: juristische Dokumente, medizinische Empfehlungen, Finanzanalysen oder sicherheitskritische Konfigurationen. Der Kritiker kann auf spezifische Prüfkriterien trainiert werden und dient als automatisierte Qualitätssicherung.
+
+![Abbildung 2.6](../assets/diagrams/abb-2-6.svg)
 
 > *Abbildung 2.6: Review and Critique, Generator und Kritiker für sichere Ergebnisse*
 
@@ -158,6 +170,8 @@ Das Coordinator-Pattern führt eine zentrale Steuerungsinstanz ein. Ein Manager-
 
 Das Pattern glänzt bei heterogenen Aufgaben, die verschiedene Fachgebiete erfordern. Der Coordinator muss selbst kein Domänenexperte sein, seine Stärke liegt darin, zu erkennen, welcher Spezialist für welche Teilaufgabe geeignet ist. Dies ähnelt der Rolle eines Projektmanagers, der Aufgaben delegiert, ohne sie persönlich ausführen zu müssen.
 
+![Abbildung 2.7](../assets/diagrams/abb-2-7.svg)
+
 > *Abbildung 2.7: Coordinator, Manager leitet Anfragen an Spezialisten weiter*
 
 #### Pattern 8: Hierarchische Dekomposition
@@ -166,6 +180,8 @@ Die hierarchische Dekomposition adressiert Probleme, die für einen einzelnen Ag
 
 Dieses Pattern spiegelt bewährte Organisationsprinzipien wider: strategische Planung auf der obersten Ebene, taktische Koordination in der Mitte und operative Ausführung an der Basis. Es eignet sich besonders für große Vorhaben wie die Analyse umfangreicher Dokumentensammlungen, die Erstellung komplexer Berichte oder die Orchestrierung mehrstufiger Geschäftsprozesse.
 
+![Abbildung 2.8](../assets/diagrams/abb-2-8.svg)
+
 > *Abbildung 2.8: Hierarchische Dekomposition, Chef, Manager und Worker in einer Baumstruktur*
 
 #### Pattern 9: Swarm
@@ -173,6 +189,8 @@ Dieses Pattern spiegelt bewährte Organisationsprinzipien wider: strategische Pl
 Das Swarm-Pattern verzichtet bewusst auf eine zentrale Steuerung. Mehrere gleichrangige Peer-Agenten erhalten dieselbe Aufgabe und arbeiten unabhängig voneinander an Lösungen. Durch gegenseitigen Austausch, Debatte und Abstimmung konvergiert das Swarm-System zur qualitativ hochwertigsten Antwort.
 
 Die Stärke des Swarm-Pattern liegt in der Vielfalt der Perspektiven. Verschiedene Agenten können unterschiedliche Modelle, Strategien oder Heuristiken verwenden und so die blinden Flecken einzelner Ansätze kompensieren. In der Praxis hat sich 2026 die Cross-Provider-Variante etabliert: Claude 4.7 Opus, GPT-5 und Gemini 3.0 debattieren gemeinsam, sodass modellspezifische Biases gegeneinander ausgespielt werden. Das Pattern eignet sich hervorragend für kreative Problemlösung, strategische Analyse und Entscheidungsfindung unter Unsicherheit.
+
+![Abbildung 2.9](../assets/diagrams/abb-2-9.svg)
 
 > *Abbildung 2.9: Swarm, gleichrangige Agenten debattieren und wählen die beste Lösung*
 
@@ -184,6 +202,8 @@ Das Human-in-the-Loop-Pattern integriert menschliche Entscheidungsträger als fe
 
 Dieses Pattern sollte nicht als Einschränkung verstanden werden, sondern als Qualitätsmerkmal. In Bereichen mit hohem Risiko, ethischen Implikationen oder rechtlichen Konsequenzen schafft menschliche Aufsicht Vertrauen und Nachvollziehbarkeit. Professionelle Systeme implementieren abgestufte Kontrollniveaus: Routineentscheidungen laufen automatisch, während hochkritische Aktionen menschliche Genehmigung erfordern.
 
+![Abbildung 2.10](../assets/diagrams/abb-2-10.svg)
+
 > *Abbildung 2.10: Human-in-the-Loop, Mensch als Entscheidungsinstanz für kritische Aktionen*
 
 #### Pattern 11: Custom Logic
@@ -191,6 +211,8 @@ Dieses Pattern sollte nicht als Einschränkung verstanden werden, sondern als Qu
 Das Custom-Logic-Pattern umhüllt Agenten mit deterministischen Geschäftsregeln und Validierungsschichten. Vor der Agentenausführung prüfen Geschäftsregeln, ob die Anfrage zulässig ist. Nach der Ausführung validieren weitere Regeln die Ausgabe anhand definierter Qualitäts- und Compliance-Kriterien. Nur wenn beide Prüfungen bestanden werden, wird das Ergebnis weitergeleitet.
 
 Dieses Pattern vereint die Flexibilität von KI-Agenten mit der Zuverlässigkeit regelbasierter Systeme. Es ist unverzichtbar in regulierten Branchen wie Finanzwesen, Gesundheitswesen oder Versicherungen, in denen strenge geschäftliche Bedingungen eingehalten werden müssen. Die Custom-Logic-Schicht stellt sicher, dass der Agent trotz seiner Autonomie niemals verbindliche Regeln verletzt.
+
+![Abbildung 2.11](../assets/diagrams/abb-2-11.svg)
 
 > *Abbildung 2.11: Custom Logic, Geschäftsregeln als Leitplanken für den Agenten*
 

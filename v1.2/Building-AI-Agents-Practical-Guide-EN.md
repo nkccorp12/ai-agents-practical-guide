@@ -108,6 +108,8 @@ The Single-Agent pattern is the simplest and most fundamental architecture. A si
 
 This pattern is an excellent fit for tasks with a clear scope that require no specialization. Typical applications include research assistants, simple data analyses, or document summarization. As of 2026, with frontier models offering 1M-token context windows and built-in extended thinking, the practical reach of a single agent has expanded significantly: many workflows that previously required orchestration can now be handled by one well-prompted Claude 4.7 Opus or GPT-5 instance. The limit of this pattern is reached when task complexity exceeds the model's effective attention budget, not just its raw context size.
 
+![Figure 2.1](../assets/diagrams/abb-2-1.svg)
+
 > *Figure 2.1: Single Agent Pattern, one model orchestrates multiple tools*
 
 #### Pattern 2: ReAct (Reason + Act)
@@ -115,6 +117,8 @@ This pattern is an excellent fit for tasks with a clear scope that require no sp
 The ReAct pattern extends the single agent with an explicit reasoning cycle: Think, Act, Observe, and repeat this loop until the goal is reached. In each iteration the agent formulates a thought (what it should do next), executes an action (tool call), and observes the result (analysis of the response).
 
 The decisive advantage over the simple single agent lies in the explicit intermediate reflection. By structured thinking before each action, the probability of poor decisions is substantially reduced. The ReAct pattern forms the foundation for many advanced agent frameworks. With the 2026 generation, extended thinking modes (Claude 4.7 Opus, GPT-5) make the "Think" step both deeper and more efficient, letting the model spend internal compute on reasoning before committing to an action.
+
+![Figure 2.2](../assets/diagrams/abb-2-2.svg)
 
 > *Figure 2.2: ReAct Pattern, iterative cycle of thinking, acting, and observing*
 
@@ -126,6 +130,8 @@ In the Multi-Agent Parallel pattern, specialized agents work simultaneously on d
 
 This pattern offers two key advantages: first, parallel execution substantially reduces total processing time. Second, the individual agents can be specialized for their respective domain, which raises result quality. Typical applications include parallel analysis of different data sources or simultaneous processing of different document sections.
 
+![Figure 2.3](../assets/diagrams/abb-2-3.svg)
+
 > *Figure 2.3: Multi-Agent Parallel, specialists work simultaneously*
 
 #### Pattern 4: Iterative Refinement
@@ -133,6 +139,8 @@ This pattern offers two key advantages: first, parallel execution substantially 
 The Iterative Refinement pattern implements a writer-editor cycle. A writer agent creates a first draft, an editor agent evaluates it and provides structured feedback. The writer then revises the draft, and the process repeats until the desired quality is achieved.
 
 This pattern is particularly effective for creative or analytical tasks where the first version is rarely optimal. The separation of creation and evaluation enforces a critical distance that a single agent can hardly achieve. In practice, two to three iteration rounds are typically sufficient.
+
+![Figure 2.4](../assets/diagrams/abb-2-4.svg)
 
 > *Figure 2.4: Iterative Refinement, writer and editor in an improvement cycle*
 
@@ -142,6 +150,8 @@ The Multi-Agent Loop resembles Iterative Refinement but adds an explicit monitor
 
 The strength of this pattern lies in the clear exit condition: the cycle does not run indefinitely but is controlled by measurable quality criteria. This makes the pattern particularly suited to tasks with clearly definable success metrics, such as data validation, code generation with test coverage, or adherence to regulatory requirements.
 
+![Figure 2.5](../assets/diagrams/abb-2-5.svg)
+
 > *Figure 2.5: Multi-Agent Loop, repetition until exit condition is met*
 
 #### Pattern 6: Review and Critique
@@ -149,6 +159,8 @@ The strength of this pattern lies in the clear exit condition: the cycle does no
 The Review and Critique pattern places safety and reliability at the center. A generator agent creates content while a specialized critic agent systematically checks it for errors, risks, and inconsistencies. Results are only considered final after explicit approval by the critic.
 
 This pattern is indispensable in domains where errors have serious consequences: legal documents, medical recommendations, financial analyses, or safety-critical configurations. The critic can be trained on specific review criteria and serves as automated quality assurance.
+
+![Figure 2.6](../assets/diagrams/abb-2-6.svg)
 
 > *Figure 2.6: Review and Critique, generator and critic for safe results*
 
@@ -160,6 +172,8 @@ The Coordinator pattern introduces a central control instance. A manager agent r
 
 The pattern excels with heterogeneous tasks that require different areas of expertise. The coordinator need not be a domain expert itself: its strength lies in recognizing which specialist is suited to which sub-task. This resembles the role of a project manager who delegates tasks without having to execute them personally.
 
+![Figure 2.7](../assets/diagrams/abb-2-7.svg)
+
 > *Figure 2.7: Coordinator, manager routes requests to specialists*
 
 #### Pattern 8: Hierarchical Decomposition
@@ -168,6 +182,8 @@ Hierarchical decomposition addresses problems that are too complex for a single 
 
 This pattern mirrors proven organizational principles: strategic planning at the top level, tactical coordination in the middle, and operational execution at the base. It is especially suited to large projects such as analyzing extensive document collections, producing complex reports, or orchestrating multi-stage business processes.
 
+![Figure 2.8](../assets/diagrams/abb-2-8.svg)
+
 > *Figure 2.8: Hierarchical Decomposition, boss, manager, and worker in a tree structure*
 
 #### Pattern 9: Swarm
@@ -175,6 +191,8 @@ This pattern mirrors proven organizational principles: strategic planning at the
 The Swarm pattern deliberately dispenses with central control. Multiple peer agents of equal standing receive the same task and work on solutions independently of one another. Through mutual exchange, debate, and voting the swarm system converges on the highest-quality answer.
 
 The strength of the Swarm pattern lies in the diversity of perspectives. Different agents can use different models, strategies, or heuristics, compensating for the blind spots of individual approaches. The pattern is an excellent fit for creative problem-solving, strategic analysis, and decision-making under uncertainty. In 2026 a typical swarm mixes Claude 4.7 Opus, GPT-5, and Gemini 3.0 to exploit their differing reasoning styles and training distributions.
+
+![Figure 2.9](../assets/diagrams/abb-2-9.svg)
 
 > *Figure 2.9: Swarm, peer agents debate and choose the best solution*
 
@@ -186,6 +204,8 @@ The Human-in-the-Loop pattern integrates human decision-makers as a fixed compon
 
 This pattern should not be understood as a restriction but as a quality feature. In areas with high risk, ethical implications, or legal consequences, human oversight creates trust and traceability. Professional systems implement graduated control levels: routine decisions run automatically, while highly critical actions require human approval.
 
+![Figure 2.10](../assets/diagrams/abb-2-10.svg)
+
 > *Figure 2.10: Human-in-the-Loop, human as decision authority for critical actions*
 
 #### Pattern 11: Custom Logic
@@ -193,6 +213,8 @@ This pattern should not be understood as a restriction but as a quality feature.
 The Custom Logic pattern wraps agents with deterministic business rules and validation layers. Before agent execution, business rules check whether the request is permissible. After execution, further rules validate the output against defined quality and compliance criteria. Only when both checks pass is the result forwarded.
 
 This pattern combines the flexibility of AI agents with the reliability of rule-based systems. It is indispensable in regulated industries such as finance, healthcare, or insurance, where strict business conditions must be observed. The custom logic layer ensures that the agent, despite its autonomy, never violates binding rules.
+
+![Figure 2.11](../assets/diagrams/abb-2-11.svg)
 
 > *Figure 2.11: Custom Logic, business rules as guardrails for the agent*
 
