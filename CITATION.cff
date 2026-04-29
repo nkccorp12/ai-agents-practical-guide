@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "Building AI Agents — The Practical Guide"
+message: "If you reference this guide, please cite it as below."
+type: book
+authors:
+  - given-names: Fabian
+    family-names: Bäumler
+    affiliation: DeepThink AI
+    email: labs@thnkdeep.ai
+abstract: >
+  A practical, production-oriented guide to architecting, building, and
+  operating AI agents. Covers the 11 fundamental agentic patterns,
+  agent architecture, memory and skills layers, performance optimization,
+  retrieval-augmented generation, self-improving multi-agent systems,
+  security, and deployment. Available in English and German.
+keywords:
+  - ai-agents
+  - agentic-ai
+  - llm
+  - rag
+  - multi-agent-systems
+  - prompt-engineering
+  - claude
+  - gpt
+  - mcp
+  - production-ai
+license: CC-BY-4.0
+version: "1.2"
+date-released: "2026-04-30"
+url: "https://github.com/nkccorp12/ai-agents-practical-guide"
+repository-code: "https://github.com/nkccorp12/ai-agents-practical-guide"
