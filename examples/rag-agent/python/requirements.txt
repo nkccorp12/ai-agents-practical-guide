@@ -1,0 +1,9 @@
+anthropic>=0.40
+cohere>=5.10
+fastapi>=0.115
+uvicorn[standard]>=0.32
+asyncpg>=0.29
+pgvector>=0.3
+pydantic>=2.7
+langfuse>=2.50
+opentelemetry-instrumentation-anthropic>=0.30

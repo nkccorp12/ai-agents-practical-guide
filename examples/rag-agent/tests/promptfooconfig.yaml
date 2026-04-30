@@ -1,0 +1,22 @@
+description: "RAG-agent goldens (faithfulness + answer-relevance)"
+
+prompts:
+  - id: rag
+    raw: "{{query}}"
+
+providers:
+  - id: http://localhost:8000/rag
+    config:
+      method: POST
+      body:
+        query: "{{query}}"
+        filters: { product: "{{product}}" }
+      transformResponse: 'json.answer'
+
+defaultTest:
+  options:
+    provider:
+      id: anthropic:messages:claude-opus-4-7
+
+tests:
+  - $ref: goldens.yaml

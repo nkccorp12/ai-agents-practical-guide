@@ -1,0 +1,43 @@
+- description: "Refund policy: grounded answer"
+  vars:
+    query: "What is the maximum refund I can issue without manager approval?"
+    product: "billing"
+  assert:
+    - type: contains
+      value: "$100"
+    - type: factuality
+      value: "Refunds above $100 require Tier-2 manager approval."
+    - type: answer-relevance
+      threshold: 0.8
+    - type: context-faithfulness
+      threshold: 0.9
+
+- description: "Out-of-scope: must abstain"
+  vars:
+    query: "What is the weather in Tokyo?"
+    product: "billing"
+  assert:
+    - type: llm-rubric
+      value: "The answer says it cannot answer or that the info is not in the documents."
+    - type: not-contains-any
+      value: ["sunny", "rainy", "cloudy"]
+
+- description: "Filter isolation: locale=de"
+  vars:
+    query: "Wie storniere ich meine Bestellung?"
+    product: "shop"
+  assert:
+    - type: llm-rubric
+      value: "Answer is in German and references German-locale documents only."
+    - type: answer-relevance
+      threshold: 0.75
+
+- description: "Citation present"
+  vars:
+    query: "What is the SLA for Tier-2 escalations?"
+    product: "support"
+  assert:
+    - type: javascript
+      value: |
+        const r = JSON.parse(context.providerResponse);
+        return r.citations && r.citations.length > 0;

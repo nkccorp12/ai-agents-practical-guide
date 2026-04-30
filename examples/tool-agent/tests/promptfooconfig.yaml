@@ -1,0 +1,24 @@
+description: "Customer-support agent goldens"
+
+prompts:
+  - id: agent
+    raw: "{{conversation}}"
+
+providers:
+  - id: http://localhost:8000/chat
+    config:
+      method: POST
+      headers:
+        Authorization: 'Bearer {"tenant_id":"t1","user_id":"u1","role":"tier1_support"}'
+      body:
+        conversation_id: "{{conv_id}}"
+        message: "{{user_input}}"
+      transformResponse: 'json.output ?? json.requires_approval'
+
+defaultTest:
+  options:
+    provider:
+      id: anthropic:messages:claude-opus-4-7
+
+tests:
+  - $ref: goldens.yaml
