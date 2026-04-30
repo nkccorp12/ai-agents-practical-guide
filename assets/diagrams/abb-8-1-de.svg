@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1358.19 224.05" width="1358.19" height="224.05" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="D" data-to="P" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="189.39499999999998,75.35 237.39499999999998,75.35" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="P" data-to="M" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="388.272,75.35 436.272,75.35" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="M" data-to="I" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="576.034,75.35 630.3325,75.35" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Q" data-to="O" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="233.11399999999995,157.15000000000003 281.1139999999999,157.15000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="O" data-to="C" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="424.58099999999996,157.15000000000003 472.58099999999996,157.15" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="C" data-to="F" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="588.631,157.15 630.3325,157.15000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="F" data-to="H" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="781.2094999999999,157.15000000000003 814.65725,157.15000000000003 814.65725,116.25000000000001 835.5079999999999,116.25000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="I" data-to="H" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="793.8064999999999,75.35 814.65725,75.35 814.65725,116.25000000000001 835.5079999999999,116.25000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="H" data-to="RR" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="973.0469999999999,116.25 1021.0469999999999,116.25" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="RR" data-to="Z" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1131.9099999999999,116.25 1179.9099999999999,116.25" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="D" data-label="Dokumente / PDFs" data-shape="rectangle">
+  <rect x="40" y="56.89999999999999" width="149.39499999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="114.69749999999999" y="75.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Dokumente / PDFs</text>
+</g>
+<g class="node" data-id="P" data-label="Struktur- oder
+bildbasierte
+PDF-Verarbeitung" data-shape="rectangle">
+  <rect x="237.39499999999998" y="40" width="150.877" height="70.7" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="312.83349999999996" y="75.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="312.83349999999996" dy="-12.350000000000001">Struktur- oder</tspan><tspan x="312.83349999999996" dy="16.900000000000002">bildbasierte</tspan><tspan x="312.83349999999996" dy="16.900000000000002">PDF-Verarbeitung</tspan></text>
+</g>
+<g class="node" data-id="M" data-label="LLM-Metadaten-
+Anreicherung" data-shape="rectangle">
+  <rect x="436.272" y="48.45" width="139.762" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="506.153" y="75.35000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="506.153" dy="-3.9000000000000012">LLM-Metadaten-</tspan><tspan x="506.153" dy="16.900000000000002">Anreicherung</tspan></text>
+</g>
+<g class="node" data-id="I" data-label="BM25 + Vector Index" data-shape="rectangle">
+  <rect x="630.3325" y="56.89999999999999" width="163.474" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="712.0695" y="75.35" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">BM25 + Vector Index</text>
+</g>
+<g class="node" data-id="Q" data-label="Nutzerfrage" data-shape="rectangle">
+  <rect x="120.02799999999995" y="138.70000000000002" width="113.086" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="176.57099999999994" y="157.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Nutzerfrage</text>
+</g>
+<g class="node" data-id="O" data-label="Query-Optimierer" data-shape="rectangle">
+  <rect x="281.1139999999999" y="138.70000000000002" width="143.467" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="352.8474999999999" y="157.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Query-Optimierer</text>
+</g>
+<g class="node" data-id="C" data-label="Sammlungs-
+Klassifikator" data-shape="rectangle">
+  <rect x="472.58099999999996" y="130.25" width="116.05000000000001" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="530.606" y="157.15" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="530.606" dy="-3.9000000000000012">Sammlungs-</tspan><tspan x="530.606" dy="16.900000000000002">Klassifikator</tspan></text>
+</g>
+<g class="node" data-id="F" data-label="Strukturierte Filter" data-shape="rectangle">
+  <rect x="630.3325" y="138.70000000000002" width="150.877" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="705.771" y="157.15000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Strukturierte Filter</text>
+</g>
+<g class="node" data-id="H" data-label="Hybrid Retrieval" data-shape="rectangle">
+  <rect x="835.5079999999999" y="97.80000000000001" width="137.539" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="904.2774999999999" y="116.25000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Hybrid Retrieval</text>
+</g>
+<g class="node" data-id="RR" data-label="Re-Ranking" data-shape="rectangle">
+  <rect x="1021.0469999999999" y="97.80000000000001" width="110.863" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1076.4785" y="116.25000000000001" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Re-Ranking</text>
+</g>
+<g class="node" data-id="Z" data-label="Antwort mit
+Quellenangaben" data-shape="rectangle">
+  <rect x="1179.9099999999999" y="89.35" width="138.28" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1249.05" y="116.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1249.05" dy="-3.9000000000000012">Antwort mit</tspan><tspan x="1249.05" dy="16.900000000000002">Quellenangaben</tspan></text>
+</g>
+</svg>

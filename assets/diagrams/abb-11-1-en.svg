@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1917.336 223.425" width="1917.336" height="223.425" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="U" data-to="IG" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="159.755,142.275 207.755,142.275" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IG" data-to="P" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="ok" points="386.78999999999996,133.30833333333334 422.78999999999996,133.30833333333334 422.78999999999996,115.63333333333334 504.32,115.63333333333334" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IG" data-to="X" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="block" points="386.78999999999996,151.24166666666667 1510.7289999999998,151.24166666666667 1510.7289999999998,164.275 1723.3509999999999,164.275 1723.3509999999999,150.775 1735.3509999999999,150.775" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="P" data-to="TG" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="603.327,115.63333333333334 651.327,115.63333333333334" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="TG" data-to="H" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="high risk" points="838.5129999999999,102.18333333333334 850.5129999999999,102.18333333333334 850.5129999999999,58.45 961.1489999999999,58.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="H" data-to="E" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="approved" points="1098.6879999999999,58.45 1238.6699999999998,58.45 1238.6699999999998,80.30000000000001 1250.6699999999998,80.30000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="TG" data-to="E" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="ok" points="838.5129999999999,115.63333333333334 1169.1399999999999,115.63333333333334 1169.1399999999999,115.9 1238.6699999999998,115.9 1238.6699999999998,92.60000000000001 1250.6699999999998,92.60000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="TG" data-to="X" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="forbidden" points="838.5129999999999,129.08333333333334 1169.1399999999999,129.08333333333334 1169.1399999999999,142.275 1723.3509999999999,142.275 1723.3509999999999,141.55 1735.3509999999999,141.55" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="E" data-to="OG" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1372.648,86.45 1420.648,86.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="OG" data-to="R" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1589.309,77.48333333333333 1625.3090000000004,77.48333333333333 1625.3090000000004,58.45 1637.3090000000004,58.45" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="OG" data-to="X" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="escalate" points="1589.309,95.41666666666666 1625.309,95.41666666666666 1625.309,115.9 1723.3509999999999,115.9 1723.3509999999999,132.325 1735.3509999999999,132.325" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="IG" data-to="P" data-label="ok">
+  <rect x="430.78999999999996" y="99.63333333333334" width="29.53" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="445.55499999999995" y="114.78333333333335" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">ok</text>
+</g>
+<g class="edge-label" data-from="IG" data-to="X" data-label="block">
+  <rect x="1518.7289999999998" y="148.275" width="43.786" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1540.6219999999998" y="163.425" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">block</text>
+</g>
+<g class="edge-label" data-from="TG" data-to="H" data-label="high risk">
+  <rect x="858.5129999999999" y="42.45" width="58.636" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="887.8309999999999" y="57.6" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">high risk</text>
+</g>
+<g class="edge-label" data-from="H" data-to="E" data-label="approved">
+  <rect x="1142.6879999999999" y="42.45" width="63.982" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1174.6789999999999" y="57.6" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">approved</text>
+</g>
+<g class="edge-label" data-from="TG" data-to="E" data-label="ok">
+  <rect x="1177.1399999999999" y="99.9" width="29.53" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1191.905" y="115.05000000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">ok</text>
+</g>
+<g class="edge-label" data-from="TG" data-to="X" data-label="forbidden">
+  <rect x="1566.5149999999999" y="126.275" width="62.794" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1597.9119999999998" y="141.425" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">forbidden</text>
+</g>
+<g class="edge-label" data-from="OG" data-to="X" data-label="escalate">
+  <rect x="1633.309" y="99.9" width="58.04200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="1662.33" y="115.05000000000001" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">escalate</text>
+</g>
+<g class="node" data-id="U" data-label="User request" data-shape="rectangle">
+  <rect x="40" y="123.825" width="119.755" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="99.8775" y="142.275" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">User request</text>
+</g>
+<g class="node" data-id="IG" data-label="Input guardrails
+Injection, PII, Risk Flags" data-shape="rectangle">
+  <rect x="207.755" y="115.375" width="179.03499999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="297.2725" y="142.275" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="297.2725" dy="-3.9000000000000012">Input guardrails</tspan><tspan x="297.2725" dy="16.900000000000002">Injection, PII, Risk Flags</tspan></text>
+</g>
+<g class="node" data-id="P" data-label="Build plan" data-shape="rectangle">
+  <rect x="504.32" y="97.18333333333334" width="99.007" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="553.8235" y="115.63333333333334" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Build plan</text>
+</g>
+<g class="node" data-id="X" data-label="Refuse / escalate" data-shape="rectangle">
+  <rect x="1735.3509999999999" y="123.1" width="141.985" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1806.3435" y="141.55" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Refuse / escalate</text>
+</g>
+<g class="node" data-id="TG" data-label="Plan &amp; Tool guardrails
+Allowlist, Business Rules" data-shape="rectangle">
+  <rect x="651.327" y="88.73333333333333" width="187.18599999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="744.92" y="115.63333333333334" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="744.92" dy="-3.9000000000000012">Plan &amp; Tool guardrails</tspan><tspan x="744.92" dy="16.900000000000002">Allowlist, Business Rules</tspan></text>
+</g>
+<g class="node" data-id="H" data-label="Human approval" data-shape="rectangle">
+  <rect x="961.1489999999999" y="40" width="137.539" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1029.9184999999998" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Human approval</text>
+</g>
+<g class="node" data-id="E" data-label="Agent &amp; Tools" data-shape="rectangle">
+  <rect x="1250.6699999999998" y="68" width="121.978" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1311.6589999999999" y="86.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Agent &amp; Tools</text>
+</g>
+<g class="node" data-id="OG" data-label="Output guardrails
+Grounding, Redaction" data-shape="rectangle">
+  <rect x="1420.648" y="59.55" width="168.661" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1504.9785" y="86.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1504.9785" dy="-3.9000000000000012">Output guardrails</tspan><tspan x="1504.9785" dy="16.900000000000002">Grounding, Redaction</tspan></text>
+</g>
+<g class="node" data-id="R" data-label="Answer to user" data-shape="rectangle">
+  <rect x="1637.3090000000004" y="40" width="130.87" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1702.7440000000004" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Answer to user</text>
+</g>
+</svg>

@@ -436,6 +436,10 @@ Gedächtnis in Agentensystemen ist kein Speicherproblem, es ist eine Ingenieurdi
 
 Produktionsreifes Gedächtnis erfordert Entscheidungen über Schichten, Pipelines, Typen und Budgets. Was gespeichert werden soll, wann konsolidiert wird, wie abgerufen wird und, entscheidend, wann vergessen wird. Diese Entscheidungen können nicht auf die Laufzeit verschoben werden; sie müssen von Anfang an in die Systemarchitektur eingebaut werden. Die Wahl der Gedächtnisarchitektur beeinflusst jede andere Komponente: Planungsqualität, Sub-Agent-Koordination und die Effektivität des Skills Layer.
 
+![Abbildung 5.1](../assets/diagrams/abb-5-1-de.svg)
+
+> *Abbildung 5.1: Drei-Schichten-Gedaechtnisarchitektur mit Extraktions-, Konsolidierungs- und Abruf-Pipeline*
+
 ### 5.2 Die drei Gedächtnisschichten
 
 Effektives Agentengedächtnis arbeitet auf drei unterschiedlichen Ebenen, jede mit eigenem Speichermechanismus und eigener Löschstrategie. Das Kurzzeitgedächtnis hält den unmittelbaren Kontext der aktuellen Aufgabe: die aktive Konversation, aktuelle Tool-Ergebnisse und den Arbeitszustand des aktuellen Plans. Es lebt im Kontextfenster und wird verworfen, wenn die Aufgabe endet.
@@ -555,6 +559,10 @@ Alle Geschwindigkeitsoptimierungen erfordern eine kontinuierliche Überwachung. 
 
 ### 6.9 Recursive Language Model (RLM): Code-gesteuerte Kontextskalierung
 
+![Abbildung 6.9](../assets/diagrams/abb-6-9-de.svg)
+
+> *Abbildung 6.9: Recursive Language Model: programmatische Zerlegung des Datensatzes statt Direkt-Prompt*
+
 Das Recursive Language Model-Pattern adressiert eine fundamentale Skalierbarkeitsbarriere: Egal wie groß das Kontextfenster eines Modells ist, Context Rot verschlechtert die Ausgabequalität lange bevor das Fenster voll ist. RLM löst dies nicht durch Erweiterung des Fensters, sondern indem es dieses nie füllt. Das Pattern umhüllt ein Standard-LLM mit drei Komponenten: einer Code-Ausführungsumgebung (Python REPL), dem vollständigen Datensatz als Variable innerhalb dieser Umgebung und einem System-Prompt, der das Modell anweist, Code zu schreiben, um die Daten zu erkunden und sich selbst rekursiv auf kleineren Teilen aufzurufen.
 
 Wenn eine Frage gestellt wird, erhält das LLM niemals den vollständigen Datensatz. Stattdessen schreibt es Code, um einen kleinen Teil zu samplen, die Struktur zu verstehen, relevante Datensätze mit programmatischer Logik zu filtern und die Daten in handhabbare Chunks zu zerlegen. Für Chunks, die Verständnis erfordern, Klassifikation, Zusammenfassung, Analyse, führt der Agent rekursive Selbstaufrufe auf jedem kleinen Chunk durch, wobei jeder Aufruf sicher innerhalb des effektiven Kontextfensters des Modells bleibt. Die Ergebnisse werden programmatisch aggregiert und zurückgegeben.
@@ -621,6 +629,10 @@ Erkenntnisse aus Produktionseinsätzen bei großen Technologieunternehmen zeigen
 ### 8.1 Die 5 zentralen RAG-Korrekturen aus der Praxis
 
 Die fünf Korrekturen adressieren jeweils eine spezifische Schwachstelle: die Verarbeitung komplexer Dokumente, die Qualität der Metadaten, die Suchstrategie, die Qualität der Suchabfragen und die Kluft zwischen mathematischer Ähnlichkeit und fachlicher Relevanz. Gemeinsam verwandeln sie ein fehlerhaftes System in ein zuverlässiges Produktionswerkzeug.
+
+![Abbildung 8.1](../assets/diagrams/abb-8-1-de.svg)
+
+> *Abbildung 8.1: Produktionsreife RAG-Pipeline: Ingest, Retrieval und Antwort mit Quellenangaben*
 
 ### 8.2 Überarbeitung der PDF-Verarbeitung
 
@@ -1092,6 +1104,10 @@ Effektive Agentensicherheit folgt dem Defense-in-Depth-Prinzip, angepasst an KI-
 | Eingabe-Guardrails | Bevor der Agent denkt | Bösartige Eingaben erkennen und neutralisieren |
 | Plan- & Werkzeug-Guardrails | Bevor der Agent handelt | Einschränken, was der Agent tun darf |
 | Ausgabe-Guardrails | Bevor der Nutzer die Antwort sieht | Verifizieren und bereinigen, was der Agent zurückgibt |
+
+![Abbildung 11.1](../assets/diagrams/abb-11-1-de.svg)
+
+> *Abbildung 11.1: Drei-Schichten-Sicherheitsdurchlauf einer Anfrage durch Eingabe-, Plan-/Tool- und Ausgabe-Guardrails*
 
 ### 11.3 Eingabe-Guardrails: Bevor der Agent denkt
 

@@ -453,6 +453,10 @@ Production-grade memory requires decisions about layers, pipelines, types, and b
 
 A 2026 development worth highlighting is agentic memory at large scale. With Claude 4.7 Opus and Gemini 3 Pro offering 1M-token context windows and GPT-5 offering 400k, a new design space opens: memory can be much richer per session, but the same models that benefit from large contexts also degrade fastest when those contexts are filled with low-signal data. The architectural lesson is the opposite of "throw more context at it": invest in better extraction, ranking, and pruning so that the available context stays information-dense.
 
+![Figure 5.1](../assets/diagrams/abb-5-1-en.svg)
+
+> *Figure 5.1: Three-layer memory architecture with extraction, consolidation, and retrieval pipeline*
+
 ### 5.2 The Three Memory Layers
 
 Effective agent memory operates on three distinct tiers, each with its own storage mechanism and eviction policy. Short-term memory holds the immediate context of the current task: the active conversation, recent tool results, and the working state of the current plan. It lives in the context window and is discarded when the task ends.
@@ -572,6 +576,10 @@ All speed optimizations require continuous monitoring. Key metrics include: aver
 
 ### 6.9 Recursive Language Model (RLM): Code-Driven Context Scaling
 
+![Figure 6.9](../assets/diagrams/abb-6-9-en.svg)
+
+> *Figure 6.9: Recursive Language Model: programmatic decomposition of the dataset instead of direct prompting*
+
 The Recursive Language Model pattern addresses a fundamental scalability barrier: no matter how large a model's context window, context rot degrades output quality long before the window is full. RLM solves this not by expanding the window but by never filling it. The pattern wraps a standard LLM with three components: a code execution environment (Python REPL), the full dataset loaded as a variable within that environment, and a system prompt instructing the model to write code to explore the data and recursively call itself on smaller pieces.
 
 When a question is asked, the LLM never receives the full dataset. Instead, it writes code to sample a small portion, understand the structure, filter relevant records using programmatic logic, and split the data into manageable chunks. For chunks requiring comprehension, classification, summarization, or analysis, the agent makes recursive self-calls on each small chunk, with every call staying safely within the model's effective context window. Results are aggregated programmatically and returned.
@@ -638,6 +646,10 @@ Insights from production deployments at large technology companies show: standar
 ### 8.1 The 5 Key RAG Corrections from Practice
 
 The five corrections each address a specific weakness: the processing of complex documents, the quality of metadata, the search strategy, the quality of search queries, and the gap between mathematical similarity and domain relevance. Together they transform a flawed system into a reliable production tool.
+
+![Figure 8.1](../assets/diagrams/abb-8-1-en.svg)
+
+> *Figure 8.1: Production-ready RAG pipeline: ingest, retrieval, and answer with citations*
 
 ### 8.2 PDF Processing Overhaul
 
@@ -1113,6 +1125,10 @@ Effective agent security follows the defense-in-depth principle adapted for AI-s
 | Input Guardrails | Before the agent thinks | Detect and neutralize malicious inputs |
 | Plan & Tool Guardrails | Before the agent acts | Constrain what the agent is allowed to do |
 | Output Guardrails | Before the user sees the response | Verify and sanitize what the agent returns |
+
+![Figure 11.1](../assets/diagrams/abb-11-1-en.svg)
+
+> *Figure 11.1: Three-layer security flow: a request through input, plan/tool, and output guardrails*
 
 ### 11.3 Input Guardrails: Before the Agent Thinks
 

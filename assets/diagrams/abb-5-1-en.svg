@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1705.556 299.41150000000005" width="1705.556" height="299.41150000000005" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="I" data-to="E" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="284.98400000000004,93.72300000000003 332.98400000000004,93.72300000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="E" data-to="C" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="435.696,93.72300000000003 483.696,93.72300000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="C" data-to="T" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="605.674,93.72300000000003 653.674,93.723" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T" data-to="S" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="761.12,93.723 785.12,93.723 785.12,112.22558333333336 1349.8880000000001,112.22558333333336" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T" data-to="M" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="761.12,93.723 785.12,93.723 785.12,85.81150000000002 862.76,85.81150000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T" data-to="L" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="761.12,93.723 785.12,93.723 785.12,167.61150000000004 809.12,167.61150000000004" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Q" data-to="R" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="978.069,240.9615 985.623,240.9615 985.623,172.07558333333338 993.177,172.07558333333338" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="M" data-to="R" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="960.285,85.81150000000002 985.623,85.81150000000002 985.623,172.07558333333338 993.177,172.07558333333338" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="L" data-to="R" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="945.177,167.61150000000004 985.623,167.61150000000004 985.623,172.07558333333338 993.177,172.07558333333338" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="R" data-to="B" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1149.2410000000002,172.07558333333336 1197.2410000000002,172.07558333333336" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="B" data-to="S" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1325.8880000000001,172.07558333333336 1337.8880000000001,172.07558333333336 1337.8880000000001,121.19225000000003 1349.8880000000001,121.19225000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="S" data-to="A" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1481.499,112.22558333333336 1529.499,112.22558333333335" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="I" data-label="Interaction / Tool output / User input" data-shape="rectangle">
+  <rect x="40" y="75.27300000000002" width="244.984" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="162.49200000000002" y="93.72300000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Interaction / Tool output / User input</text>
+</g>
+<g class="node" data-id="E" data-label="Extraction" data-shape="rectangle">
+  <rect x="332.98400000000004" y="75.27300000000002" width="102.712" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="384.34000000000003" y="93.72300000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Extraction</text>
+</g>
+<g class="node" data-id="C" data-label="Consolidation" data-shape="rectangle">
+  <rect x="483.696" y="75.27300000000002" width="121.978" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="544.6850000000001" y="93.72300000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Consolidation</text>
+</g>
+<g class="node" data-id="T" data-label="Typing" data-shape="diamond">
+  <polygon points="707.3969999999999,40 761.1199999999999,93.723 707.3969999999999,147.446 653.674,93.723" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="707.3969999999999" y="93.723" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Typing</text>
+</g>
+<g class="node" data-id="S" data-label="Short-term
+Context window" data-shape="rectangle">
+  <rect x="1349.8880000000001" y="85.32558333333336" width="131.611" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1415.6935" y="112.22558333333336" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="1415.6935" dy="-3.9000000000000012">Short-term</tspan><tspan x="1415.6935" dy="16.900000000000002">Context window</tspan></text>
+</g>
+<g class="node" data-id="M" data-label="Mid-term
+DB / Files" data-shape="rectangle">
+  <rect x="862.76" y="58.91150000000002" width="97.525" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="911.5225" y="85.81150000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="911.5225" dy="-3.9000000000000012">Mid-term</tspan><tspan x="911.5225" dy="16.900000000000002">DB / Files</tspan></text>
+</g>
+<g class="node" data-id="L" data-label="Long-term
+Persistent store" data-shape="rectangle">
+  <rect x="809.12" y="140.71150000000003" width="136.05700000000002" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="877.1485" y="167.61150000000004" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="877.1485" dy="-3.9000000000000012">Long-term</tspan><tspan x="877.1485" dy="16.900000000000002">Persistent store</tspan></text>
+</g>
+<g class="node" data-id="Q" data-label="Current task" data-shape="rectangle">
+  <rect x="862.76" y="222.5115" width="115.30900000000001" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="920.4145" y="240.9615" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Current task</text>
+</g>
+<g class="node" data-id="R" data-label="Retrieval &amp; Ranking" data-shape="rectangle">
+  <rect x="993.177" y="153.62558333333337" width="156.06400000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1071.209" y="172.07558333333338" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Retrieval &amp; Ranking</text>
+</g>
+<g class="node" data-id="B" data-label="Context budget" data-shape="rectangle">
+  <rect x="1197.2410000000002" y="153.62558333333337" width="128.647" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1261.5645000000002" y="172.07558333333338" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Context budget</text>
+</g>
+<g class="node" data-id="A" data-label="Agent response" data-shape="rectangle">
+  <rect x="1529.499" y="93.77558333333334" width="136.057" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="1597.5275" y="112.22558333333335" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Agent response</text>
+</g>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 617.53 874.838" width="617.53" height="874.838" style="--bg:#FFFFFF;--fg:#27272A;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="Q" data-to="P" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="124.3305,76.9 124.3305,121.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="D" data-to="X" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="316.175,175 316.175,192.4 220.25274999999996,192.4 220.25274999999996,209.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="P" data-to="X" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="124.3305,158.10000000000002 124.3305,192.4 220.25274999999996,192.4 220.25274999999996,209.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="X" data-to="K" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="220.25274999999996,263.6 220.25274999999996,275.6 474.9693333333333,275.6 474.9693333333333,287.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="K" data-to="Z" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="no" points="474.9693333333333,287.6 474.9693333333333,158.10000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="Z" data-to="K" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="500.60949999999997,158.10000000000002 500.60949999999997,275.6 474.9693333333333,275.6 474.9693333333333,287.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="K" data-to="R" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="yes" points="474.9693333333333,478.038 474.9693333333333,594.338" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="R" data-to="G" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="474.9693333333333,648.1379999999999 474.96933333333334,696.1379999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="G" data-to="A" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="474.96933333333334,749.9379999999999 474.9693333333333,797.9379999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="K" data-to="Z" data-label="no">
+  <rect x="459.9693333333333" y="214.3" width="29.53" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="474.73433333333327" y="229.45000000000002" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">no</text>
+</g>
+<g class="edge-label" data-from="K" data-to="R" data-label="yes">
+  <rect x="456.9693333333333" y="521.038" width="35.47" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="474.7043333333333" y="536.188" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">yes</text>
+</g>
+<g class="node" data-id="Q" data-label="Question" data-shape="rectangle">
+  <rect x="77.4205" y="40" width="93.82000000000001" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="124.3305" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Question</text>
+</g>
+<g class="node" data-id="P" data-label="LLM with RLM prompt" data-shape="rectangle">
+  <rect x="40" y="121.2" width="168.661" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="124.3305" y="139.65" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">LLM with RLM prompt</text>
+</g>
+<g class="node" data-id="D" data-label="Full dataset
+in code environment" data-shape="rectangle">
+  <rect x="236.661" y="121.2" width="159.028" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="316.175" y="148.1" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="316.175" dy="-3.9000000000000012">Full dataset</tspan><tspan x="316.175" dy="16.900000000000002">in code environment</tspan></text>
+</g>
+<g class="node" data-id="X" data-label="LLM writes code:
+sample, filter, chunk" data-shape="rectangle">
+  <rect x="142.22074999999995" y="209.8" width="156.06400000000002" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="220.25274999999996" y="236.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="220.25274999999996" dy="-3.9000000000000012">LLM writes code:</tspan><tspan x="220.25274999999996" dy="16.900000000000002">sample, filter, chunk</tspan></text>
+</g>
+<g class="node" data-id="K" data-label="Chunk small enough?" data-shape="diamond">
+  <polygon points="474.9693333333333,287.6 570.1883333333333,382.819 474.9693333333333,478.038 379.7503333333333,382.819" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="474.9693333333333" y="382.819" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Chunk small enough?</text>
+</g>
+<g class="node" data-id="Z" data-label="Decompose further" data-shape="rectangle">
+  <rect x="423.68899999999996" y="121.2" width="153.841" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="500.60949999999997" y="139.65" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Decompose further</text>
+</g>
+<g class="node" data-id="R" data-label="Recursive LLM calls
+per chunk" data-shape="rectangle">
+  <rect x="392.1208333333333" y="594.338" width="165.697" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="474.9693333333333" y="621.2379999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="474.9693333333333" dy="-3.9000000000000012">Recursive LLM calls</tspan><tspan x="474.9693333333333" dy="16.900000000000002">per chunk</tspan></text>
+</g>
+<g class="node" data-id="G" data-label="Programmatic
+aggregation" data-shape="rectangle">
+  <rect x="413.2393333333333" y="696.1379999999999" width="123.46" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="474.96933333333334" y="723.0379999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="474.96933333333334" dy="-3.9000000000000012">Programmatic</tspan><tspan x="474.96933333333334" dy="16.900000000000002">aggregation</tspan></text>
+</g>
+<g class="node" data-id="A" data-label="Final answer" data-shape="rectangle">
+  <rect x="415.83283333333327" y="797.9379999999999" width="118.273" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="474.9693333333333" y="816.3879999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Final answer</text>
+</g>
+</svg>
