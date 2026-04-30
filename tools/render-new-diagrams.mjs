@@ -129,7 +129,7 @@ for (const d of diagrams) {
     const code = lang === 'de' ? d.codeDe : d.codeEn
     const filename = `assets/diagrams/abb-${d.id}-${lang}.svg`
     try {
-      const svg = await renderMermaidSVG(code, { theme })
+      const svg = renderMermaidSVG(code, theme)
       writeFileSync(filename, svg)
       console.log(`OK ${filename}`)
     } catch (err) {
