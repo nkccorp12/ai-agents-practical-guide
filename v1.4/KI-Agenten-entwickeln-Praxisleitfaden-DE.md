@@ -53,6 +53,7 @@ Ausgabe Mai 2026 (Update 1.4)
     - [12.5 Audit Logs](#125-audit-logs)
     - [12.6 Rollback und Incident Response](#126-rollback-und-incident-response)
     - [12.7 Kostensteuerung](#127-kostensteuerung)
+    - [12.8 Production-Readiness: Die Schichten-Checkliste](#128-production-readiness-die-schichten-checkliste)
 - [Anhänge](#anhange)
   - [Anhang A: Architektur-Checklisten](#anhang-a-architektur-checklisten)
   - [Anhang B: Benchmarking-Vorlagen](#anhang-b-benchmarking-vorlagen)
@@ -1744,6 +1745,43 @@ Auf Anwendungsebene: `req.on("close", () => controller.abort())`, sodass abandon
 - [ ] Cost-Attribution pro Tenant/Feature/User im Dashboard.
 
 Quellen: [Clarifai AI Cost Controls](https://www.clarifai.com/blog/ai-cost-controls), [Maxim Reduce LLM Cost 2026](https://www.getmaxim.ai/articles/reduce-llm-cost-and-latency-a-comprehensive-guide-for-2026/), [Redis LLM Token Optimization](https://redis.io/blog/llm-token-optimization-speed-up-apps/), [LLM Agent Cost Attribution 2026](https://www.digitalapplied.com/blog/llm-agent-cost-attribution-guide-production-2026).
+
+
+
+### 12.8 Production-Readiness: Die Schichten-Checkliste
+
+Die folgende Liste ist eine Synthese-Checkliste, kein konkurrierendes Taxonomiesystem. Sie bildet die neun Architekturschichten, die in diesem Leitfaden behandelt werden, auf konkrete Go/No-Go-Kriterien ab. Vor jedem Produktions-Release diese neun Schichten der Reihe nach durchgehen.
+
+1. **Modulare Codebase und Config-Hygiene** -- Umgebungsspezifische Konfiguration wird über Umgebungsvariablen injiziert; keine Secrets oder Debug-Flags sind hardcodiert. Entwicklungs-Tooling (ausführliches Logging, Mock-Provider, gelockerte Rate Limits) ist im Production-Build nicht vorhanden.
+
+2. **Datensicherheit: DTOs, keine Roh-Modelle ans Frontend** (siehe Kapitel 11) -- Jede API-Antwort wird über ein Data Transfer Object geformt. ORM-Modelle, interne IDs und berechnete Felder, die nicht für Clients bestimmt sind, verlassen die Service-Grenze nicht.
+
+3. **Security: Rate-Limiting, Input-Sanitization, Authentifizierung** (siehe Kapitel 11, Abschnitte 11.8–11.11) -- Alle Endpunkte sind durch Authentifizierung geschützt. Nutzereingaben werden sanitisiert, bevor sie in Prompts oder Queries interpoliert werden. Per-IP- und per-Tenant-Rate-Limits werden auf Gateway-Ebene durchgesetzt.
+
+4. **Service-Layer: Connection-Pooling, Retries mit exponentiellem Backoff, Modell-Tier-Fallback** (siehe Abschnitt 12.7) -- Datenbank- und HTTP-Clients verwenden Connection Pools mit expliziten Größenlimits. Wiederholbare Fehler (5xx, Rate-Limit-Antworten) werden mit exponentiellem Backoff und Jitter wiederholt. Ein Komplexitäts-Klassifikator leitet Anfragen an das günstigste ausreichende Modell-Tier weiter.
+
+5. **Multi-Agent-Architektur und persistentes Memory** (siehe Kapitel 2, Kapitel 5) -- Orchestrator und Sub-Agents haben isolierte Kontextfenster. Langfristiger Zustand wird in einem persistenten Memory-Layer gespeichert (Semantic Store oder strukturierte DB), nicht in der Prompt-History. Memory-Pipelines (Extraktion, Konsolidierung, Abruf) werden unter konkurrenter Schreiblast getestet.
+
+6. **API-Gateway: Auth-Endpunkte, Session-Management, SSE-Streaming** -- Auth-Tokens werden am Gateway validiert, nicht innerhalb einzelner Services. Der Session-Lebenszyklus (Erstellung, Refresh, Widerruf) wird explizit behandelt. SSE-Verbindungen propagieren `AbortSignal`, sodass abgebrochene Streams die Token-Generierung beim Provider stoppen.
+
+7. **Observability** (siehe Abschnitte 12.1–12.3) -- Strukturierte Logs, verteilte Traces und ein Metriken-Dashboard sind vor dem Go-Live vorhanden. Latenz-Perzentile (p50/p95/p99), Fehlerraten und Cache-Hitrate werden pro Endpunkt und pro Tenant verfolgt.
+
+8. **Eval-Framework mit LLM-as-Judge** (siehe Kapitel 9) -- Eine Regressions-Eval-Suite deckt zentrale User-Journeys ab. Mindestens ein automatisierter Judge-Prompt bewertet die Ausgabequalität, sodass Regressionen vor dem Deployment erkannt werden.
+
+9. **Stress-Testing unter realistischer Last** -- Das System wird vor dem Release unter der erwarteten Peak-Concurrency lasttestet. Bottlenecks, die unter realistischer Last identifiziert werden (nicht nur Single-User-Benchmarks), werden behoben. Graceful-Degradation-Verhalten (Queuing, Throttling, verständliche Fehlermeldungen) wird explizit verifiziert.
+
+**Anti-Pattern** -- Jede dieser neun Schichten als "kann später ergänzt werden" behandeln. Security- und Observability-Lücken, die beim Launch bestehen, bleiben in der Regel bis zu einem Incident.
+
+**Checkliste**
+- [ ] Config-Hygiene: keine Debug-Flags oder Secrets im Production-Build.
+- [ ] DTOs: Roh-Modelle erreichen den Client nicht.
+- [ ] Auth, Rate-Limiting und Input-Sanitization am Gateway durchgesetzt.
+- [ ] Connection-Pooling, Retries mit Backoff und Modell-Tier-Fallback konfiguriert.
+- [ ] Multi-Agent-Memory persistent und unter konkurrenter Last getestet.
+- [ ] SSE `AbortSignal` end-to-end propagiert; Session-Lebenszyklus explizit behandelt.
+- [ ] Strukturierte Logs, Traces und Metriken-Dashboard in Betrieb.
+- [ ] Eval-Suite mit LLM-as-Judge vor jedem Deployment bestanden.
+- [ ] Lasttest unter realistischer Concurrency durchgeführt; Graceful Degradation verifiziert.
 
 
 
