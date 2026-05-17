@@ -176,22 +176,38 @@ Absatz. Wird inhaltlich erweitert, **kein** neuer Abschnitt.
 
 ## 6. Diagramme
 
-Zwei neue Diagramme über die **bestehende** Pipeline `tools/render-new-diagrams.mjs`
+### 6.1 Inline-Diagramm — Harness-Anatomie (Mermaid-Pipeline)
+
+Ein neues Diagramm über die **bestehende** Pipeline `tools/render-new-diagrams.mjs`
 (deterministisch, Mermaid via `beautiful-mermaid`, zweisprachig, Dark-Theme):
 
-1. **Harness-Anatomie** (Abschnitt 3.6) — Flowchart: LLM-Kern + Loop + Primitiv-Tools
-   + Context-Mgmt + Error-Handling.
-2. **7-Schichten-Agent-Stack** (Abschnitt 1.5) — vertikaler Flowchart / Mermaid-block.
+- **Harness-Anatomie** (Abschnitt 3.6) — Flowchart: LLM-Kern + Loop + Primitiv-Tools
+  + Context-Mgmt + Error-Handling.
 
-Beide als neue Einträge im `diagrams`-Array von `render-new-diagrams.mjs`, mit
-denselben `id`/`captionDe`/`captionEn`/`codeDe`/`codeEn`-Feldern und demselben
-Theme-Objekt. Output nach `assets/diagrams/`, Einbindung per Markdown-Image-Tag.
+Als neuer Eintrag im `diagrams`-Array von `render-new-diagrams.mjs`, mit denselben
+`id`/`captionDe`/`captionEn`/`codeDe`/`codeEn`-Feldern und demselben Theme-Objekt.
+Output nach `assets/diagrams/`, Einbindung per Markdown-Image-Tag.
 
-**Nicht verwendet:** der Skill `cathrynlavery/diagram-design`. Begründung (Subagent-
-Recherche): LLM-generiert statt deterministisch, Output-Format (HTML/inline-SVG)
-inkompatibel zum Markdown-Einbindungspfad, Stil-Bruch zum Dark-Theme, und der
-Layer-Diagramm-Typ deckelt bei 6 Schichten (Stack hat 7). Höchstens als optionale
-Layout-Ideenquelle.
+### 6.2 Hero-Diagramm — 7-Schichten-Agent-Stack (diagram-design-Skill)
+
+Das **Signatur-/Hero-Bild der v1.4-Edition**: der 7-Schichten-Agent-Stack, editorial
+gestaltet mit dem Skill `cathrynlavery/diagram-design`. Doppelnutzung:
+- als Hero-Visual oben in beiden Guide-Hauptdateien (optional zusätzlich README)
+- als Abbildung in Abschnitt 1.5
+
+Damit gibt es nur **ein** Stack-Diagramm — keine zusätzliche Mermaid-Variante.
+
+Umsetzung:
+- diagram-design-Skill installieren (Repo klonen, `skills/diagram-design/` nach
+  `~/.claude/skills/` symlinken).
+- **Brand-Tokens des Guides** in den `style-guide.md` des Skills geben — Dark-Slate
+  (`#1e293b`), Akzent (`#3b82f6`), Font Inter — damit das Hero zum Guide passt und
+  nicht im hellen Editorial-Default landet.
+- Output ist eine eigenständige HTML-Datei mit inline-SVG; als Artefakt separat
+  ablegen (`assets/hero-v1.4/`). Für die Markdown-Einbindung das SVG aus dem HTML
+  extrahieren, nach `assets/diagrams/` legen und per Image-Tag einbinden.
+- Der Skill ist LLM-generiert (nicht deterministisch) — für ein einmaliges Hero-Bild
+  akzeptabel; die Inline-Diagramme bleiben deterministisch via Mermaid.
 
 ## 7. Repo-Hygiene-Fixes (gezielt, im Rahmen der v1.4-Arbeit)
 
@@ -229,7 +245,8 @@ größeres Strukturthema und kein Teil dieses Updates.
 - `v1.4/` enthält beide Guide-Dateien, aufbauend auf v1.3-Inhalt + den 6 Ergänzungen.
 - Jedes der 6 Story-Materialien ist an der spezifizierten Stelle vorhanden.
 - TOC in beiden Sprachen um 1.5 / 3.6 / 12.8 / 12.9 ergänzt.
-- 2 neue Diagramme gerendert und in beiden Sprachfassungen eingebunden.
+- 2 neue Diagramme eingebunden (beide Sprachfassungen): Harness-Anatomie (Mermaid,
+  Abschnitt 3.6) und 7-Schichten-Stack als Hero via diagram-design (Abschnitt 1.5).
 - README, CITATION.cff, `_meta/ROADMAP-v1.4.md` aktualisiert.
 - Keine Dublette von Progressive Disclosure (4.6), Memory-Definition (Kap. 5) oder
   Security-Taxonomie (Kap. 11).
