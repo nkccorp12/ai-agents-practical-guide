@@ -1061,29 +1061,9 @@ Channel resolution via feature-flag provider (GrowthBook recommended because Bay
 
 **Mini architecture:**
 
-```
-                +-------------------+
-   Request ---> | Skill Runner      |
-                |                   |
-                |  channel = flag.  |--- 10% --> v1.3.0-rc1 (canary)
-                |    get("invoice", |--- 90% --> v1.2.4     (stable)
-                |    user_id)       |
-                +-------------------+
-                       |
-                       v
-              +------------------+
-              | Telemetry (OTel) |
-              |  - tags: variant |
-              +------------------+
-                       |
-                       v
-              +-------------------+
-              | GrowthBook        |
-              |  Bayesian compare |
-              |  -> auto_promote  |
-              |  -> auto_rollback |
-              +-------------------+
-```
+![Figure 9.5: Canary rollout flow](../assets/diagrams/abb-9-5-en.svg)
+
+> *Figure 9.5: Canary rollout. The Skill Runner routes shares to canary and stable; telemetry and GrowthBook drive auto_promote and auto_rollback.*
 
 GrowthBook stops the rollout automatically when a guardrail tips. Important: guardrails must be defined ex ante (before the rollout), not ex post. Otherwise it is not a test, it is storytelling.
 

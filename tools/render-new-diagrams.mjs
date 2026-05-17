@@ -10,7 +10,7 @@ const theme = {
   muted: '#64748b'
 }
 
-// Fünf Diagramme in zwei Sprachen (DE + EN)
+// Sechs Diagramme in zwei Sprachen (DE + EN)
 const diagrams = [
   {
     id: '5-1',
@@ -140,6 +140,23 @@ const diagrams = [
   CM --> EH["Error handling<br/>Retry / fallback"]
   EH --> L
   L --> O["Action / result"]`
+  },
+  {
+    id: '9-5',
+    captionDe: 'Canary-Rollout: Der Skill Runner routet Anteile auf Canary und Stable, Telemetrie und GrowthBook steuern auto_promote und auto_rollback',
+    captionEn: 'Canary rollout: the Skill Runner routes shares to canary and stable, telemetry and GrowthBook drive auto_promote and auto_rollback',
+    codeDe: `flowchart TD
+  R["Request"] --> SR["Skill Runner<br/>channel = flag.get('invoice', user_id)"]
+  SR -->|"10%"| CN["v1.3.0-rc1<br/>(Canary)"]
+  SR -->|"90%"| ST["v1.2.4<br/>(stabil)"]
+  SR --> TEL["Telemetrie (OTel)<br/>Tags: Variante"]
+  TEL --> GB["GrowthBook<br/>Bayesian-Vergleich<br/>auto_promote / auto_rollback"]`,
+    codeEn: `flowchart TD
+  R["Request"] --> SR["Skill Runner<br/>channel = flag.get('invoice', user_id)"]
+  SR -->|"10%"| CN["v1.3.0-rc1<br/>(canary)"]
+  SR -->|"90%"| ST["v1.2.4<br/>(stable)"]
+  SR --> TEL["Telemetry (OTel)<br/>tags: variant"]
+  TEL --> GB["GrowthBook<br/>Bayesian compare<br/>auto_promote / auto_rollback"]`
   }
 ]
 

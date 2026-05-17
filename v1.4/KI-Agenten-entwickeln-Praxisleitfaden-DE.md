@@ -1042,29 +1042,9 @@ Channel-Auflösung über Feature-Flag-Provider (GrowthBook empfohlen, weil Bayes
 
 **Mini-Architektur:**
 
-```
-                +-------------------+
-   Request ---> | Skill Runner      |
-                |                   |
-                |  channel = flag.  |--- 10% --> v1.3.0-rc1 (canary)
-                |    get("invoice", |--- 90% --> v1.2.4     (stable)
-                |    user_id)       |
-                +-------------------+
-                       |
-                       v
-              +------------------+
-              | Telemetry (OTel) |
-              |  - tags: variant |
-              +------------------+
-                       |
-                       v
-              +-------------------+
-              | GrowthBook        |
-              |  Bayesian Compare |
-              |  -> auto_promote  |
-              |  -> auto_rollback |
-              +-------------------+
-```
+![Abbildung 9.5: Canary-Rollout-Fluss](../assets/diagrams/abb-9-5-de.svg)
+
+> *Abbildung 9.5: Canary-Rollout. Der Skill Runner routet Anteile auf Canary und Stable; Telemetrie und GrowthBook steuern auto_promote und auto_rollback.*
 
 GrowthBook stoppt den Rollout automatisch, wenn ein Guardrail kippt. Wichtig: Guardrails müssen ex ante definiert sein (vor dem Rollout), nicht ex post. Sonst ist es kein Test, sondern Storytelling.
 
