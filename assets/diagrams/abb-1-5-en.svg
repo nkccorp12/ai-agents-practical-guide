@@ -10,11 +10,11 @@
 <text x="100" y="80" fill="#cbd5e1" font-size="26" font-weight="700">The 2026 Agent Stack</text>
 
 <!-- Direction column (left margin) -->
-<text x="44" y="124" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 44 124)">ABSTRACTION</text>
+<text x="22" y="124" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 22 124)">ABSTRACTION</text>
 <polygon points="40,116 48,116 44,108" fill="#64748b"/>
 <line x1="44" y1="116" x2="44" y2="500" stroke="#64748b" stroke-width="1" opacity="0.5"/>
 <polygon points="40,500 48,500 44,508" fill="#64748b"/>
-<text x="44" y="544" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 44 544)">HARDWARE</text>
+<text x="22" y="544" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 22 544)">HARDWARE</text>
 
 <!-- Stack outer hairlines -->
 <line x1="100" y1="108" x2="900" y2="108" stroke="#cbd5e1" stroke-width="1" opacity="0.18"/>
