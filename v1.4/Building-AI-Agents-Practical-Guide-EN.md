@@ -1856,6 +1856,20 @@ Chapter 9 builds the eval system: you design test cases, wire up the eval harnes
 | Quality metrics defined and measured | [ ] | Medium |
 | Self-improvement cycle planned | [ ] | Low |
 
+### Production-Readiness Layers
+
+Compact checklist for the nine production-readiness layers from Section 12.8. See Section 12.8 for the full criteria per layer.
+
+- [ ] Modular codebase and config hygiene -- no secrets or debug flags in the production build; env-specific config via environment variables.
+- [ ] Data security: DTOs -- raw ORM models never reach the client; every API response shaped through a Data Transfer Object.
+- [ ] Security: rate limiting, input sanitisation, authentication -- all endpoints protected; user input sanitised before prompt interpolation; per-IP and per-tenant rate limits at the gateway.
+- [ ] Service layer: connection pooling, retries with exponential backoff, model-tier fallback -- pools configured with explicit size limits; retryable errors retried with backoff and jitter; complexity classifier routes to cheapest sufficient tier.
+- [ ] Multi-agent architecture and persistent memory -- orchestrator and sub-agents have isolated context windows; long-term state in a persistent memory layer; memory pipelines tested under concurrent write load.
+- [ ] API gateway: auth endpoints, session management, SSE streaming -- tokens validated at the gateway; session lifecycle (create, refresh, revoke) explicit; SSE connections propagate `AbortSignal`.
+- [ ] Observability -- structured logs, distributed traces, and a metrics dashboard operational before go-live; p50/p95/p99 latency, error rates, and cache hit rate tracked per endpoint and tenant.
+- [ ] Eval framework with LLM-as-judge -- regression eval suite covers core user journeys; at least one automated judge prompt scores output quality before each deployment.
+- [ ] Stress testing under realistic concurrency -- load test run at expected peak concurrency; bottlenecks resolved; graceful degradation (queuing, throttling, meaningful error messages) verified.
+
 ## Appendix B: Benchmarking Templates
 
 For systematic benchmarking we recommend the following metrics per agent system:
