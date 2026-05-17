@@ -35,11 +35,11 @@ Six parts, twelve chapters, seven appendices:
 ## What's new in v1.4
 
 - **Section 1.5** — The 2026 agent stack model: a layered conceptual model of the full agentic runtime, accompanied by a new hero diagram.
-- **Section 3.6** — The agent harness concept: how a harness coordinates skill dispatch, context injection, and execution boundaries; includes an architecture diagram.
+- **Section 3.6** — The agent harness concept: the loop, primitive tools, context management, and error handling that turn a model into a working agent; includes an architecture diagram.
 - **Section 4.5 extended** — Systematic skill discovery: a domain-to-tasks-to-skills-to-automation mapping method for building a skill inventory from first principles.
 - **Section 8.5 extended** — Inter-agent retrieval validation: detecting and mitigating misinformation propagation in multi-agent RAG pipelines.
-- **Section 12.8** — 9-layer production-readiness checklist: a structured gate covering infra, observability, security, cost, compliance, and rollback.
-- **Section 12.9** — Production monitoring: metrics hierarchy, alert thresholds, and runbook integration for live agent systems.
+- **Section 12.8** — 9-layer production-readiness checklist: a pre-launch synthesis check across nine architectural layers (modular codebase, data security, security, service layer, multi-agent, API gateway, observability, eval framework, stress testing).
+- **Section 12.9** — Production monitoring: full conversation recording, filtered annotation queues, automated LLM evals on production traffic, and the closed-loop improvement cycle.
 
 ## What's new in v1.3
 
@@ -101,11 +101,11 @@ Sechs Teile, zwölf Kapitel, sieben Anhänge: Grundlagen + 11 agentische Pattern
 ## Was ist neu in v1.4
 
 - **Abschnitt 1.5** — Das 2026 Agent-Stack-Modell: ein geschichtetes Konzeptmodell der agentischen Laufzeitumgebung mit neuem Hero-Diagramm.
-- **Abschnitt 3.6** — Das Agent-Harness-Konzept: Koordination von Skill-Dispatch, Kontext-Injektion und Ausführungsgrenzen; mit Architekturdiagramm.
+- **Abschnitt 3.6** — Das Agent-Harness-Konzept: der Loop, primitive Tools, Context-Management und Error-Handling, die ein Modell zu einem arbeitenden Agenten machen; mit Architekturdiagramm.
 - **Abschnitt 4.5 erweitert** — Systematische Skill-Discovery: Domain-zu-Aufgaben-zu-Skills-zu-Automatisierung-Methode für den Aufbau eines Skill-Inventars.
 - **Abschnitt 8.5 erweitert** — Inter-Agent-Retrieval-Validierung: Erkennung und Mitigation von Fehlinformationen in Multi-Agent-RAG-Pipelines.
-- **Abschnitt 12.8** — 9-Schichten-Produktionsreife-Checkliste: strukturiertes Gate über Infrastruktur, Observability, Sicherheit, Kosten, Compliance und Rollback.
-- **Abschnitt 12.9** — Produktions-Monitoring: Metrik-Hierarchie, Alert-Schwellenwerte und Runbook-Integration für produktive Agentensysteme.
+- **Abschnitt 12.8** — 9-Schichten-Produktionsreife-Checkliste: ein Pre-Launch-Synthese-Check über neun Architektur-Schichten (modularer Codebase, Datensicherheit, Security, Service-Layer, Multi-Agent, API-Gateway, Observability, Eval-Framework, Stress-Testing).
+- **Abschnitt 12.9** — Produktions-Monitoring: vollständiges Conversation-Recording, gefilterte Annotation-Queues, automatisierte LLM-Evals auf Prod-Traffic und die Closed-Loop-Verbesserungsschleife.
 
 ## Was ist neu in v1.3
 
