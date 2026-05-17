@@ -1446,13 +1446,13 @@ Der Betrieb eines Agentensystems in der Produktion stellt andere Anforderungen a
 
 Agentensysteme erfordern mehrstufige Fallback-Strategien. Wenn ein spezialisierter Agent versagt, übernimmt ein allgemeinerer Agent. Wenn das Sprachmodell nicht antwortet, springen Backup-Agents ein. Wenn die Ergebnisqualität unter einen Schwellenwert fällt, wird automatisch ein Human-in-the-Loop-Prozess ausgelöst. Modell-Routing-Layer wie das Vercel AI Gateway oder OpenRouter erlauben es, Provider-Ausfälle ohne Code-Änderung abzufangen, indem Anfragen automatisch zwischen Claude 4.7 Opus, GPT-5 und Gemini 3 Pro umgeleitet werden.
 
-### Deployment-Plattformen
-
-Die Wahl der Deployment-Plattform hat 2026 erheblichen Einfluss auf Architektur und Betriebskosten. Drei Plattform-Klassen haben sich etabliert: Erstens serverlose Edge-Plattformen wie Vercel Functions und Cloudflare Workers AI, ideal für niedrig-latente, zustandsarme Agenten-Endpunkte mit nativer Streaming-Unterstützung. Zweitens GPU-zentrierte Container-Plattformen wie Modal, Beam und RunPod, geeignet für Self-Hosting von Open-Source-Modellen, Re-Rankern und Embedding-Pipelines mit Cold-Start unter einer Sekunde. Drittens durable Workflow-Engines wie Vercel Workflow (WDK), Inngest und Temporal, optimal für langlaufende Multi-Step-Agenten mit Pause/Resume-Semantik und garantierter Ausführung über Stunden oder Tage. Das Vercel AI SDK 5 hat sich als gängiges Framework etabliert, weil es Provider-Abstraktion, Streaming, Tool-Calling und MCP-Integration in einem konsistenten API vereint.
-
 ### Kontinuierliche Verbesserung
 
 Etablieren Sie einen äußeren Verbesserungszyklus, der Produktionsdaten systematisch auswertet. Identifizieren Sie wiederkehrende Fehlertypen und übersetzen Sie diese in verbesserte Skills, angepasste Prompts oder zusätzliche Validierungsregeln. Nutzen Sie die Erkenntnisse des selbstverbessernden Ansatzes (Kapitel 9), um diesen Prozess so weit wie möglich zu automatisieren.
+
+### Deployment-Plattformen
+
+Die Wahl der Deployment-Plattform hat 2026 erheblichen Einfluss auf Architektur und Betriebskosten. Drei Plattform-Klassen haben sich etabliert: Erstens serverlose Edge-Plattformen wie Vercel Functions und Cloudflare Workers AI, ideal für niedrig-latente, zustandsarme Agenten-Endpunkte mit nativer Streaming-Unterstützung. Zweitens GPU-zentrierte Container-Plattformen wie Modal, Beam und RunPod, geeignet für Self-Hosting von Open-Source-Modellen, Re-Rankern und Embedding-Pipelines mit Cold-Start unter einer Sekunde. Drittens durable Workflow-Engines wie Vercel Workflow (WDK), Inngest und Temporal, optimal für langlaufende Multi-Step-Agenten mit Pause/Resume-Semantik und garantierter Ausführung über Stunden oder Tage. Das Vercel AI SDK 5 hat sich als gängiges Framework etabliert, weil es Provider-Abstraktion, Streaming, Tool-Calling und MCP-Integration in einem konsistenten API vereint.
 
 > **Kernergebnisse Kapitel 12**
 > - Agentensysteme erfordern Monitoring sowohl auf technischer als auch auf inhaltlicher Ebene.
