@@ -36,10 +36,10 @@ Six parts, twelve chapters, seven appendices:
 
 - **Section 1.5** — The 2026 agent stack model: a layered conceptual model of the full agentic runtime, accompanied by a new hero diagram.
 - **Section 3.6** — The agent harness concept: how a harness coordinates skill dispatch, context injection, and execution boundaries; includes an architecture diagram.
+- **Section 4.5 extended** — Systematic skill discovery: a domain-to-tasks-to-skills-to-automation mapping method for building a skill inventory from first principles.
 - **Section 8.5 extended** — Inter-agent retrieval validation: detecting and mitigating misinformation propagation in multi-agent RAG pipelines.
 - **Section 12.8** — 9-layer production-readiness checklist: a structured gate covering infra, observability, security, cost, compliance, and rollback.
 - **Section 12.9** — Production monitoring: metrics hierarchy, alert thresholds, and runbook integration for live agent systems.
-- **Section 4.5 extended** — Systematic skill discovery: a domain-to-tasks-to-skills-to-automation mapping method for building a skill inventory from first principles.
 
 ## What's new in v1.3
 
@@ -59,10 +59,10 @@ Six parts, twelve chapters, seven appendices:
 .
 ├── v1.4/                            # current edition (May 2026)
 │   ├── Building-AI-Agents-Practical-Guide-EN.md
-│   ├── KI-Agenten-entwickeln-Praxisleitfaden-DE.md
+│   └── KI-Agenten-entwickeln-Praxisleitfaden-DE.md
+├── v1.3/                            # previous edition (April 2026)
 │   ├── sections/                    # section sources and appendix files
 │   └── snippets/                    # chapter extension fragments
-├── v1.3/                            # previous edition (April 2026)
 ├── v1.2/                            # April 2026 first edition
 ├── examples/                        # reference implementations (~1,144 LOC code + SQL/YAML/JSON)
 │   ├── tool-agent/                  # customer-support agent with approval gate
@@ -102,10 +102,10 @@ Sechs Teile, zwölf Kapitel, sieben Anhänge: Grundlagen + 11 agentische Pattern
 
 - **Abschnitt 1.5** — Das 2026 Agent-Stack-Modell: ein geschichtetes Konzeptmodell der agentischen Laufzeitumgebung mit neuem Hero-Diagramm.
 - **Abschnitt 3.6** — Das Agent-Harness-Konzept: Koordination von Skill-Dispatch, Kontext-Injektion und Ausführungsgrenzen; mit Architekturdiagramm.
+- **Abschnitt 4.5 erweitert** — Systematische Skill-Discovery: Domain-zu-Aufgaben-zu-Skills-zu-Automatisierung-Methode für den Aufbau eines Skill-Inventars.
 - **Abschnitt 8.5 erweitert** — Inter-Agent-Retrieval-Validierung: Erkennung und Mitigation von Fehlinformationen in Multi-Agent-RAG-Pipelines.
 - **Abschnitt 12.8** — 9-Schichten-Produktionsreife-Checkliste: strukturiertes Gate über Infrastruktur, Observability, Sicherheit, Kosten, Compliance und Rollback.
 - **Abschnitt 12.9** — Produktions-Monitoring: Metrik-Hierarchie, Alert-Schwellenwerte und Runbook-Integration für produktive Agentensysteme.
-- **Abschnitt 4.5 erweitert** — Systematische Skill-Discovery: Domain-zu-Aufgaben-zu-Skills-zu-Automatisierung-Methode für den Aufbau eines Skill-Inventars.
 
 ## Was ist neu in v1.3
 
