@@ -739,6 +739,14 @@ def classify_query(query: str) -> list[str]:
     return resp.content[0].text
 ```
 
+**Inter-agent misinformation.** A three-stage pipeline multiplies retrieval opportunities, but it also multiplies retrieval failure points. When a weak retrieval step in an early agent produces low-quality results and passes them downstream as a confident output, subsequent agents synthesize from that noise rather than from relevant evidence. The error does not stay local: it propagates through each hop and arrives at the final response amplified, not corrected. This pattern is distinct from single-agent hallucination and warrants its own term: inter-agent misinformation, or downstream loss.
+
+A common reaction is to upgrade the model at the synthesis stage. This does not solve the problem. A stronger model receiving poor retrieval output produces higher-fidelity hallucinations, not more accurate answers. The defect is in the retrieval signal, not in the generation capacity.
+
+Four measures address this at the architecture level. First, validate retrieval quality at every hop, not only at the entry point. Each agent-to-agent handoff should include a relevance signal alongside the retrieved content. Second, apply hard relevance thresholds: if the top-k results from a retrieval step fall below a minimum similarity score, the agent must not treat them as valid evidence. Third, define a formal "insufficient information" return state. When retrieved context does not meet the threshold, the agent returns this state rather than synthesizing from marginal results. Downstream agents that receive "insufficient information" can escalate, fall back to a broader search, or surface the gap to the user explicitly. Fourth, treat each agent-retrieval interface as an independent risk surface during design and evaluation: an integration that looks correct in isolation may propagate garbage silently under real query distributions.
+
+The re-ranking stage described in section 8.6 is complementary: re-ranking improves the ordering of a retrieved set that already meets the relevance bar, but it cannot rescue a retrieval step that returned the wrong documents in the first place. Evaluation gates for multi-agent pipelines are covered in Chapter 9.
+
 ### 8.6 Re-Ranking for Domain Relevance
 
 Mathematical similarity does not equal domain relevance. A document that scores highest in vector similarity may be tangentially related at best, while a critically important document scores lower because it uses different terminology for the same concept. This gap between semantic similarity and actual relevance is the fifth and often overlooked weakness in standard RAG systems.
