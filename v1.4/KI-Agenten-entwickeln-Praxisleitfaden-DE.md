@@ -106,7 +106,7 @@ Produktive Agentensysteme im Jahr 2026 lassen sich am besten als Schichtenstack 
 
 **Interface.** Die Interface-Schicht ist der Berührungspunkt zwischen Mensch und Agent: Terminal, Web-UI, Chat-Oberflächen und API-Endpoints. Sie übersetzt Absichten in strukturierte Eingaben, die die Runtime verarbeiten kann, und gibt Agenten-Ausgaben in einer Form zurück, die Menschen bewerten und weiterverarbeiten können.
 
-**Runtime.** Die Runtime-Schicht ist für die Ausführung des Agenten-Loops zuständig: Planung, Schrittsequenzierung, Zustandsverfolgung und Fehlerwiederherstellung. Hier leben die Architektur-Pattern aus Kapitel 3, und hier treten die kritischen Architekturlücken aus Kapitel 3 zutage. Multi-Agent-Koordination und Ausführungs-Harnesses sind ebenfalls Runtime-Belange; Abschnitt 3.6 behandelt das Harness-Design im Detail.
+**Runtime.** Die Runtime-Schicht ist für die Ausführung des Agenten-Loops zuständig: Planung, Schrittsequenzierung, Zustandsverfolgung und Fehlerwiederherstellung. Hier leben die Architektur-Pattern aus Kapitel 2, und hier treten die kritischen Architekturlücken aus Kapitel 3 zutage. Multi-Agent-Koordination und Ausführungs-Harnesses sind ebenfalls Runtime-Belange; Abschnitt 3.6 behandelt das Harness-Design im Detail.
 
 **Protocol.** Die Protocol-Schicht standardisiert die Verbindung der Runtime zu externen Fähigkeiten. Das Model Context Protocol (MCP) ist der aufkommende Standard, der individuelle Integrationen durch einen einheitlichen Tool-Anbindungsvertrag ersetzt. Kapitel 4 behandelt die auf diesem Protokoll aufbauende Skills-Layer-Architektur.
 
