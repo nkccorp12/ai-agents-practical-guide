@@ -3,7 +3,7 @@
 > A practical, production-oriented guide to architecting, building, and operating AI agents.
 > Available in **English** and **Deutsch**.
 
-**Version 1.3 (April 2026)** — sharpened with verified model capabilities, full reference implementations, and an expanded production chapter (auth, secrets, multi-tenancy, audit, SLOs, cost control).
+**Version 1.4 (May 2026)** — extended with six new sections covering the 2026 agent stack model, the agent harness concept, inter-agent retrieval validation, a 9-layer production-readiness checklist, production monitoring, and systematic skill discovery.
 
 By **Fabian Bäumler**, [DeepThink AI](https://thnkdeep.ai).
 
@@ -13,11 +13,11 @@ By **Fabian Bäumler**, [DeepThink AI](https://thnkdeep.ai).
 
 | Language | File |
 | --- | --- |
-| English | [Building AI Agents — The Practical Guide (v1.3)](v1.3/Building-AI-Agents-Practical-Guide-EN.md) |
-| Deutsch | [KI-Agenten entwickeln — Der Praxisleitfaden (v1.3)](v1.3/KI-Agenten-entwickeln-Praxisleitfaden-DE.md) |
+| English | [Building AI Agents — The Practical Guide (v1.4)](v1.4/Building-AI-Agents-Practical-Guide-EN.md) |
+| Deutsch | [KI-Agenten entwickeln — Der Praxisleitfaden (v1.4)](v1.4/KI-Agenten-entwickeln-Praxisleitfaden-DE.md) |
 
 Reference implementations under [`examples/`](examples/) (tool-agent + RAG-agent, Python + TypeScript, ~1,144 LOC).
-Older versions: [`v1.2/`](v1.2/) (April 2026 first edition), [`archive/v1.1/`](archive/v1.1/) (February 2026).
+Older versions: [`v1.3/`](v1.3/) (April 2026), [`v1.2/`](v1.2/) (April 2026 first edition), [`archive/v1.1/`](archive/v1.1/) (February 2026).
 Reviewer notes and research outputs: [`_meta/`](_meta/).
 
 ## What's inside
@@ -31,6 +31,15 @@ Six parts, twelve chapters, seven appendices:
 - **Part V** — Self-improving multi-agent RAG systems (eval-harness, approval gates, anti-drift, canary rollouts, veto zones)
 - **Part VI** — From prototype to production: decision framework, expanded security (identity, secrets, tenancy, PII), expanded deployment (SLOs, audit, rollback, cost control)
 - **Appendices A–G** — Checklists, benchmarking templates, troubleshooting, further resources, model capability matrix, reference implementations, skill format spec
+
+## What's new in v1.4
+
+- **Section 1.5** — The 2026 agent stack model: a layered conceptual model of the full agentic runtime, accompanied by a new hero diagram.
+- **Section 3.6** — The agent harness concept: how a harness coordinates skill dispatch, context injection, and execution boundaries; includes an architecture diagram.
+- **Section 8.5 extended** — Inter-agent retrieval validation: detecting and mitigating misinformation propagation in multi-agent RAG pipelines.
+- **Section 12.8** — 9-layer production-readiness checklist: a structured gate covering infra, observability, security, cost, compliance, and rollback.
+- **Section 12.9** — Production monitoring: metrics hierarchy, alert thresholds, and runbook integration for live agent systems.
+- **Section 4.5 extended** — Systematic skill discovery: a domain-to-tasks-to-skills-to-automation mapping method for building a skill inventory from first principles.
 
 ## What's new in v1.3
 
@@ -48,17 +57,18 @@ Six parts, twelve chapters, seven appendices:
 
 ```
 .
-├── v1.3/                            # current edition (April 2026)
+├── v1.4/                            # current edition (May 2026)
 │   ├── Building-AI-Agents-Practical-Guide-EN.md
 │   ├── KI-Agenten-entwickeln-Praxisleitfaden-DE.md
-│   ├── sections/                    # appendices E, F, G as separate files
+│   ├── sections/                    # section sources and appendix files
 │   └── snippets/                    # chapter extension fragments
-├── v1.2/                            # previous edition
+├── v1.3/                            # previous edition (April 2026)
+├── v1.2/                            # April 2026 first edition
 ├── examples/                        # reference implementations (~1,144 LOC code + SQL/YAML/JSON)
 │   ├── tool-agent/                  # customer-support agent with approval gate
 │   └── rag-agent/                   # hybrid-search RAG with citations
 ├── archive/v1.1/                    # February 2026 edition
-├── assets/diagrams/                 # 11 architecture diagrams (SVG)
+├── assets/diagrams/                 # 23 architecture diagrams (SVG)
 ├── _meta/                           # codex review, roadmap, research outputs
 ├── CITATION.cff
 └── LICENSE                          # CC BY 4.0
@@ -71,7 +81,7 @@ Content is licensed under [CC BY 4.0](LICENSE). You are free to share and adapt 
 ## Citation
 
 ```
-Bäumler, F. (2026). Building AI Agents — The Practical Guide (v1.3). DeepThink AI.
+Bäumler, F. (2026). Building AI Agents — The Practical Guide (v1.4). DeepThink AI.
 ```
 
 ---
@@ -80,13 +90,22 @@ Bäumler, F. (2026). Building AI Agents — The Practical Guide (v1.3). DeepThin
 
 Praxisorientierter Leitfaden für Architektur, Aufbau und Betrieb produktionsreifer KI-Agenten.
 
-**Version 1.3 (April 2026)**, geschärft durch verifizierte Modell-Capabilities, vollständige Referenz-Implementierungen und ein ausgebautes Production-Kapitel (Auth, Secrets, Mandantentrennung, Audit, SLOs, Kostensteuerung).
+**Version 1.4 (Mai 2026)**, erweitert um sechs neue Abschnitte: 2026 Agent-Stack-Modell, Agent-Harness-Konzept, Inter-Agent-Retrieval-Validierung, 9-Schichten-Produktionsreife-Checkliste, Produktions-Monitoring und systematische Skill-Discovery.
 
 Von **Fabian Bäumler**, [DeepThink AI](https://thnkdeep.ai).
 
 ## Was ist drin
 
 Sechs Teile, zwölf Kapitel, sieben Anhänge: Grundlagen + 11 agentische Pattern, Architekturlücken, Skills-Layer (mit Anthropic Skill-Format), Memory, Performance, RAG, selbstverbessernde Multi-Agent-Systeme (mit Eval-Harness, Approval Gates, Verbotszonen), Sicherheit (Identity, Secrets, Mandantentrennung, PII), Deployment (SLOs, Audit, Rollback, Kosten), Anhänge A–G inkl. Capability-Matrix, Referenz-Implementierungen und Skill-Format-Spezifikation.
+
+## Was ist neu in v1.4
+
+- **Abschnitt 1.5** — Das 2026 Agent-Stack-Modell: ein geschichtetes Konzeptmodell der agentischen Laufzeitumgebung mit neuem Hero-Diagramm.
+- **Abschnitt 3.6** — Das Agent-Harness-Konzept: Koordination von Skill-Dispatch, Kontext-Injektion und Ausführungsgrenzen; mit Architekturdiagramm.
+- **Abschnitt 8.5 erweitert** — Inter-Agent-Retrieval-Validierung: Erkennung und Mitigation von Fehlinformationen in Multi-Agent-RAG-Pipelines.
+- **Abschnitt 12.8** — 9-Schichten-Produktionsreife-Checkliste: strukturiertes Gate über Infrastruktur, Observability, Sicherheit, Kosten, Compliance und Rollback.
+- **Abschnitt 12.9** — Produktions-Monitoring: Metrik-Hierarchie, Alert-Schwellenwerte und Runbook-Integration für produktive Agentensysteme.
+- **Abschnitt 4.5 erweitert** — Systematische Skill-Discovery: Domain-zu-Aufgaben-zu-Skills-zu-Automatisierung-Methode für den Aufbau eines Skill-Inventars.
 
 ## Was ist neu in v1.3
 
