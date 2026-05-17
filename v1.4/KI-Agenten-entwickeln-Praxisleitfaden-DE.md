@@ -1750,7 +1750,7 @@ Quellen: [Clarifai AI Cost Controls](https://www.clarifai.com/blog/ai-cost-contr
 
 ### 12.8 Production-Readiness: Die Schichten-Checkliste
 
-Die folgende Liste ist eine Synthese-Checkliste, kein konkurrierendes Taxonomiesystem. Sie bildet die neun Architekturschichten, die in diesem Leitfaden behandelt werden, auf konkrete Go/No-Go-Kriterien ab. Vor jedem Produktions-Release diese neun Schichten der Reihe nach durchgehen.
+Die folgende Liste ist eine Synthese-Checkliste, keine konkurrierende Taxonomie. Sie bildet die neun Architekturschichten, die in diesem Leitfaden behandelt werden, auf konkrete Go/No-Go-Kriterien ab. Vor jedem Produktions-Release diese neun Schichten der Reihe nach durchgehen.
 
 1. **Modulare Codebase und Config-Hygiene** -- Umgebungsspezifische Konfiguration wird über Umgebungsvariablen injiziert; keine Secrets oder Debug-Flags sind hardcodiert. Entwicklungs-Tooling (ausführliches Logging, Mock-Provider, gelockerte Rate Limits) ist im Production-Build nicht vorhanden.
 

@@ -1768,27 +1768,27 @@ Sources: [Clarifai AI Cost Controls](https://www.clarifai.com/blog/ai-cost-contr
 
 ### 12.8 Production Readiness: The Layer Checklist
 
-The following is a synthesis checklist, not a competing taxonomy. It maps the nine architectural layers covered throughout this guide to concrete go/no-go criteria. Work through them in order before any production release.
+The following is a synthesis checklist, not a competing taxonomy. It maps the nine architectural layers covered in this guide to concrete go/no-go criteria. Work through them in order before any production release.
 
-1. **Modular codebase and config hygiene** — Environment-specific config is injected via environment variables; no secrets or debug flags are hardcoded. Development tooling (verbose logging, mock providers, relaxed rate limits) is absent from the production build.
+1. **Modular codebase and config hygiene** -- Environment-specific config is injected via environment variables; no secrets or debug flags are hardcoded. Development tooling (verbose logging, mock providers, relaxed rate limits) is absent from the production build.
 
-2. **Data security: DTOs, no raw models to the frontend** (see Chapter 11) — Every API response is shaped through a Data Transfer Object. ORM models, internal IDs, and computed fields that are not intended for clients never leave the service boundary.
+2. **Data security: DTOs, no raw models to the frontend** (see Chapter 11) -- Every API response is shaped through a Data Transfer Object. ORM models, internal IDs, and computed fields that are not intended for clients never leave the service boundary.
 
-3. **Security: rate limiting, input sanitisation, authentication** (see Chapter 11, sections 11.8–11.11) — All endpoints are protected by authentication. User-supplied strings are sanitised before being interpolated into prompts or queries. Per-IP and per-tenant rate limits are enforced at the gateway layer.
+3. **Security: rate limiting, input sanitisation, authentication** (see Chapter 11, sections 11.8–11.11) -- All endpoints are protected by authentication. User-supplied strings are sanitised before being interpolated into prompts or queries. Per-IP and per-tenant rate limits are enforced at the gateway layer.
 
-4. **Service layer: connection pooling, retries with exponential backoff, model-tier fallback** (see Section 12.7) — Database and HTTP clients use connection pools with explicit size limits. Retryable errors (5xx, rate-limit responses) are retried with exponential backoff and jitter. A complexity classifier routes requests to the cheapest sufficient model tier.
+4. **Service layer: connection pooling, retries with exponential backoff, model-tier fallback** (see Section 12.7) -- Database and HTTP clients use connection pools with explicit size limits. Retryable errors (5xx, rate-limit responses) are retried with exponential backoff and jitter. A complexity classifier routes requests to the cheapest sufficient model tier.
 
-5. **Multi-agent architecture and persistent memory** (see Chapter 2, Chapter 5) — Orchestrator and sub-agents have isolated context windows. Long-term state is stored in a persistent memory layer (semantic store or structured DB), not in the prompt history. Memory pipelines (extract, consolidate, retrieve) are tested under concurrent write load.
+5. **Multi-agent architecture and persistent memory** (see Chapter 2, Chapter 5) -- Orchestrator and sub-agents have isolated context windows. Long-term state is stored in a persistent memory layer (semantic store or structured DB), not in the prompt history. Memory pipelines (extract, consolidate, retrieve) are tested under concurrent write load.
 
-6. **API gateway: auth endpoints, session management, SSE streaming** — Auth tokens are validated at the gateway, not inside individual services. Session lifecycle (creation, refresh, revocation) is handled explicitly. SSE connections propagate `AbortSignal` so abandoned streams stop token generation at the provider.
+6. **API gateway: auth endpoints, session management, SSE streaming** -- Auth tokens are validated at the gateway, not inside individual services. Session lifecycle (creation, refresh, revocation) is handled explicitly. SSE connections propagate `AbortSignal` so abandoned streams stop token generation at the provider.
 
-7. **Observability** (see Sections 12.1–12.3) — Structured logs, distributed traces, and a metrics dashboard are in place before go-live. Latency percentiles (p50/p95/p99), error rates, and cache hit rate are tracked per endpoint and per tenant.
+7. **Observability** (see Sections 12.1–12.3) -- Structured logs, distributed traces, and a metrics dashboard are in place before go-live. Latency percentiles (p50/p95/p99), error rates, and cache hit rate are tracked per endpoint and per tenant.
 
-8. **Eval framework with LLM-as-judge** (see Chapter 9) — A regression eval suite covers core user journeys. At least one automated judge prompt scores output quality so regressions are caught before deployment, not after.
+8. **Eval framework with LLM-as-judge** (see Chapter 9) -- A regression eval suite covers core user journeys. At least one automated judge prompt scores output quality so regressions are caught before deployment, not after.
 
-9. **Stress testing under realistic concurrency** — The system is load-tested at expected peak concurrency before release. Bottlenecks identified under realistic load (not just single-user benchmarks) are resolved. Graceful degradation behaviour (queuing, throttling, meaningful error messages) is verified explicitly.
+9. **Stress testing under realistic concurrency** -- The system is load-tested at expected peak concurrency before release. Bottlenecks identified under realistic load (not just single-user benchmarks) are resolved. Graceful degradation behaviour (queuing, throttling, meaningful error messages) is verified explicitly.
 
-**Anti-pattern** — Treating any of these nine layers as "can be added later." Security and observability gaps that exist at launch tend to remain until an incident forces remediation.
+**Anti-pattern** -- Treating any of these nine layers as "can be added later." Security and observability gaps that exist at launch tend to remain until an incident forces remediation.
 
 **Checklist**
 - [ ] Config hygiene: no debug flags or secrets in the production build.
