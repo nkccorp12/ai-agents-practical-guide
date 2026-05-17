@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" style="--bg:#1e293b;--fg:#cbd5e1;--accent:#3b82f6;--muted:#64748b;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+</style>
+<rect width="100%" height="100%" fill="#1e293b"/>
+
+<!-- Eyebrow + title -->
+<text x="100" y="48" fill="#64748b" font-size="11" font-weight="600" letter-spacing="3" text-transform="uppercase">SCHICHTENSTACK</text>
+<text x="100" y="80" fill="#cbd5e1" font-size="26" font-weight="700">Der Agent-Stack 2026</text>
+
+<!-- Direction column (left margin) -->
+<text x="44" y="124" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 44 124)">ABSTRAKTION</text>
+<polygon points="40,116 48,116 44,108" fill="#64748b"/>
+<line x1="44" y1="116" x2="44" y2="500" stroke="#64748b" stroke-width="1" opacity="0.5"/>
+<polygon points="40,500 48,500 44,508" fill="#64748b"/>
+<text x="44" y="544" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 44 544)">HARDWARE</text>
+
+<!-- Stack outer hairlines -->
+<line x1="100" y1="108" x2="900" y2="108" stroke="#cbd5e1" stroke-width="1" opacity="0.18"/>
+<line x1="100" y1="500" x2="900" y2="500" stroke="#cbd5e1" stroke-width="1" opacity="0.18"/>
+
+<!-- L7 — Interface -->
+<rect x="100" y="108" width="800" height="56" fill="#27384f"/>
+<line x1="100" y1="164" x2="900" y2="164" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+<text x="124" y="141" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L7</text>
+<text x="200" y="132" fill="#cbd5e1" font-size="16" font-weight="600">Interface</text>
+<text x="200" y="151" fill="#94a3b8" font-size="11.5" font-weight="400">Berührungspunkt von Mensch und Agent: Terminal, Web-UI, Chat, API-Endpoints.</text>
+<text x="876" y="141" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">Absicht rein, Ergebnis raus</text>
+
+<!-- L6 — Runtime (FOCAL) -->
+<rect x="100" y="164" width="800" height="56" fill="rgba(59,130,246,0.12)"/>
+<rect x="100" y="164" width="800" height="56" fill="none" stroke="#3b82f6" stroke-width="1.2"/>
+<text x="124" y="197" fill="#3b82f6" font-size="10" font-weight="700" letter-spacing="1.5">L6</text>
+<text x="200" y="188" fill="#cbd5e1" font-size="16" font-weight="600">Runtime</text>
+<text x="200" y="207" fill="#94a3b8" font-size="11.5" font-weight="400">Führt den Agenten-Loop aus: Planung, Schrittsequenzierung, Zustand, Recovery.</text>
+<text x="876" y="197" fill="#3b82f6" font-size="10" font-weight="600" text-anchor="end" letter-spacing="0.5">der Agenten-Loop</text>
+
+<!-- L5 — Protocol (MCP) -->
+<rect x="100" y="220" width="800" height="56" fill="#27384f"/>
+<line x1="100" y1="276" x2="900" y2="276" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+<text x="124" y="253" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L5</text>
+<text x="200" y="244" fill="#cbd5e1" font-size="16" font-weight="600">Protocol (MCP)</text>
+<text x="200" y="263" fill="#94a3b8" font-size="11.5" font-weight="400">Ein einheitlicher Tool-Anbindungsvertrag statt maßgeschneiderter Einzelintegrationen.</text>
+<text x="876" y="253" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">Model Context Protocol</text>
+
+<!-- L4 — Tools and Sandboxes -->
+<rect x="100" y="276" width="800" height="56" fill="#223349"/>
+<line x1="100" y1="332" x2="900" y2="332" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+<text x="124" y="309" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L4</text>
+<text x="200" y="300" fill="#cbd5e1" font-size="16" font-weight="600">Tools &amp; Sandboxes</text>
+<text x="200" y="319" fill="#94a3b8" font-size="11.5" font-weight="400">Code, Browser, Dateien, APIs, gekapselt in Ausführungs- und Berechtigungsgrenzen.</text>
+<text x="876" y="309" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">Reichweite mit Grenzen</text>
+
+<!-- L3 — Knowledge and Memory -->
+<rect x="100" y="332" width="800" height="56" fill="#27384f"/>
+<line x1="100" y1="388" x2="900" y2="388" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+<text x="124" y="365" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L3</text>
+<text x="200" y="356" fill="#cbd5e1" font-size="16" font-weight="600">Knowledge &amp; Memory</text>
+<text x="200" y="375" fill="#94a3b8" font-size="11.5" font-weight="400">Knowledge bei Bedarf abgerufen; Memory über Sitzungen hinweg persistiert.</text>
+<text x="876" y="365" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">abrufen und persistieren</text>
+
+<!-- L2 — Models -->
+<rect x="100" y="388" width="800" height="56" fill="#223349"/>
+<line x1="100" y1="444" x2="900" y2="444" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+<text x="124" y="421" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L2</text>
+<text x="200" y="412" fill="#cbd5e1" font-size="16" font-weight="600">Models</text>
+<text x="200" y="431" fill="#94a3b8" font-size="11.5" font-weight="400">Routing, Fallbacks und Gateways über mehrere Frontier-Modelle hinweg.</text>
+<text x="876" y="421" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">routen und absichern</text>
+
+<!-- L1 — Evals and Observability -->
+<rect x="100" y="444" width="800" height="56" fill="#27384f"/>
+<text x="124" y="477" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L1</text>
+<text x="200" y="468" fill="#cbd5e1" font-size="16" font-weight="600">Evals &amp; Observability</text>
+<text x="200" y="487" fill="#94a3b8" font-size="11.5" font-weight="400">Eval-Harnesses, Trace-Logging und Kennzahlen, die den Feedback-Kreislauf schließen.</text>
+<text x="876" y="477" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">messen heißt verbessern</text>
+
+<!-- Caption -->
+<text x="100" y="534" fill="#3b82f6" font-size="9" font-weight="600" letter-spacing="2">FOKUS-SCHICHT</text>
+<text x="216" y="534" fill="#94a3b8" font-size="11" font-weight="400" font-style="italic">Die Runtime ist das Zuhause des Agenten-Loops: Planung, Pattern und die kritischen Lücken, die über den Produktionserfolg entscheiden.</text>
+</svg>

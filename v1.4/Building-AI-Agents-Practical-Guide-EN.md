@@ -13,6 +13,8 @@ Edition May 2026 (Update 1.4)
 
 *Version 1.4, extended with the agent stack model, the harness concept, multi-agent retrieval validation, and a production-readiness checklist*
 
+![The 2026 Agent Stack](../assets/diagrams/abb-1-5-en.svg)
+
 ---
 
 ## Table of Contents
@@ -108,6 +110,10 @@ The path from a working prototype to a production-ready agent system requires ma
 ### 1.5 The 2026 Agent Stack
 
 Production agent systems in 2026 are best understood as a layered stack. Each layer has a defined responsibility, and the boundaries between layers determine where complexity lives and where it can be isolated. The seven layers below serve as a reading map for the rest of this guide.
+
+![Figure 1.5](../assets/diagrams/abb-1-5-en.svg)
+
+> *Figure 1.5: The 2026 agent stack: seven layers from interface down to evals and observability, with the runtime as the focal layer*
 
 **Interface.** The interface layer is where humans and agents meet: terminals, web UIs, chat surfaces, and API endpoints. Its job is to translate intent into structured inputs the runtime can act on, and to render agent outputs in a form humans can evaluate and act upon.
 

@@ -13,6 +13,8 @@ Ausgabe Mai 2026 (Update 1.4)
 
 *Version 1.4, erweitert um das Agent-Stack-Modell, das Harness-Konzept, Multi-Agent-Retrieval-Validierung und eine Production-Readiness-Checkliste*
 
+![Der Agent-Stack 2026](../assets/diagrams/abb-1-5-de.svg)
+
 ---
 
 ## Inhaltsverzeichnis
@@ -106,6 +108,10 @@ Der Weg vom funktionierenden Prototyp zum produktionsreifen Agentensystem erford
 ### 1.5 Der Agent-Stack 2026
 
 Produktive Agentensysteme im Jahr 2026 lassen sich am besten als Schichtenstack verstehen. Jede Schicht hat eine klar definierte Zuständigkeit, und die Grenzen zwischen den Schichten bestimmen, wo Komplexität anfällt und wo sie isoliert werden kann. Die sieben Schichten unten dienen als Lesekarte für den Rest dieses Leitfadens.
+
+![Abbildung 1.5](../assets/diagrams/abb-1-5-de.svg)
+
+> *Abbildung 1.5: Der Agent-Stack 2026: sieben Schichten von der Interface-Schicht bis hinunter zu Evals und Observability, mit der Runtime als Fokus-Schicht*
 
 **Interface.** Die Interface-Schicht ist der Berührungspunkt zwischen Mensch und Agent: Terminal, Web-UI, Chat-Oberflächen und API-Endpoints. Sie übersetzt Absichten in strukturierte Eingaben, die die Runtime verarbeiten kann, und gibt Agenten-Ausgaben in einer Form zurück, die Menschen bewerten und weiterverarbeiten können.
 

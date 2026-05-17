@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 2026 Agent Stack &middot; Layer hierarchy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #1e293b;
+      --fg:     #cbd5e1;
+      --accent: #3b82f6;
+      --muted:  #64748b;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+    .frame { max-width: 1100px; width: 100%; }
+    svg { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" style="--bg:#1e293b;--fg:#cbd5e1;--accent:#3b82f6;--muted:#64748b;background:var(--bg)">
+      <style>
+        text { font-family: 'Inter', system-ui, sans-serif; }
+      </style>
+      <rect width="100%" height="100%" fill="#1e293b"/>
+
+      <!-- Eyebrow + title -->
+      <text x="100" y="48" fill="#64748b" font-size="11" font-weight="600" letter-spacing="3">LAYER STACK</text>
+      <text x="100" y="80" fill="#cbd5e1" font-size="26" font-weight="700">The 2026 Agent Stack</text>
+
+      <!-- Direction column (left margin) -->
+      <text x="44" y="124" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 44 124)">ABSTRACTION</text>
+      <polygon points="40,116 48,116 44,108" fill="#64748b"/>
+      <line x1="44" y1="116" x2="44" y2="500" stroke="#64748b" stroke-width="1" opacity="0.5"/>
+      <polygon points="40,500 48,500 44,508" fill="#64748b"/>
+      <text x="44" y="544" fill="#64748b" font-size="9" font-weight="500" letter-spacing="2" transform="rotate(-90 44 544)">HARDWARE</text>
+
+      <!-- Stack outer hairlines -->
+      <line x1="100" y1="108" x2="900" y2="108" stroke="#cbd5e1" stroke-width="1" opacity="0.18"/>
+      <line x1="100" y1="500" x2="900" y2="500" stroke="#cbd5e1" stroke-width="1" opacity="0.18"/>
+
+      <!-- L7 — Interface -->
+      <rect x="100" y="108" width="800" height="56" fill="#27384f"/>
+      <line x1="100" y1="164" x2="900" y2="164" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+      <text x="124" y="141" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L7</text>
+      <text x="200" y="132" fill="#cbd5e1" font-size="16" font-weight="600">Interface</text>
+      <text x="200" y="151" fill="#94a3b8" font-size="11.5" font-weight="400">Where humans and agents meet: terminals, web UIs, chat, API endpoints.</text>
+      <text x="876" y="141" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">intent in, results out</text>
+
+      <!-- L6 — Runtime (FOCAL) -->
+      <rect x="100" y="164" width="800" height="56" fill="rgba(59,130,246,0.12)"/>
+      <rect x="100" y="164" width="800" height="56" fill="none" stroke="#3b82f6" stroke-width="1.2"/>
+      <text x="124" y="197" fill="#3b82f6" font-size="10" font-weight="700" letter-spacing="1.5">L6</text>
+      <text x="200" y="188" fill="#cbd5e1" font-size="16" font-weight="600">Runtime</text>
+      <text x="200" y="207" fill="#94a3b8" font-size="11.5" font-weight="400">Executes the agent loop: planning, step sequencing, state, recovery.</text>
+      <text x="876" y="197" fill="#3b82f6" font-size="10" font-weight="600" text-anchor="end" letter-spacing="0.5">the agent loop</text>
+
+      <!-- L5 — Protocol (MCP) -->
+      <rect x="100" y="220" width="800" height="56" fill="#27384f"/>
+      <line x1="100" y1="276" x2="900" y2="276" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+      <text x="124" y="253" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L5</text>
+      <text x="200" y="244" fill="#cbd5e1" font-size="16" font-weight="600">Protocol (MCP)</text>
+      <text x="200" y="263" fill="#94a3b8" font-size="11.5" font-weight="400">A uniform tool-attachment contract in place of one-off integrations.</text>
+      <text x="876" y="253" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">Model Context Protocol</text>
+
+      <!-- L4 — Tools and Sandboxes -->
+      <rect x="100" y="276" width="800" height="56" fill="#223349"/>
+      <line x1="100" y1="332" x2="900" y2="332" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+      <text x="124" y="309" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L4</text>
+      <text x="200" y="300" fill="#cbd5e1" font-size="16" font-weight="600">Tools &amp; Sandboxes</text>
+      <text x="200" y="319" fill="#94a3b8" font-size="11.5" font-weight="400">Code, browser, files, APIs, wrapped in execution and permission boundaries.</text>
+      <text x="876" y="309" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">reach with limits</text>
+
+      <!-- L3 — Knowledge and Memory -->
+      <rect x="100" y="332" width="800" height="56" fill="#27384f"/>
+      <line x1="100" y1="388" x2="900" y2="388" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+      <text x="124" y="365" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L3</text>
+      <text x="200" y="356" fill="#cbd5e1" font-size="16" font-weight="600">Knowledge &amp; Memory</text>
+      <text x="200" y="375" fill="#94a3b8" font-size="11.5" font-weight="400">Knowledge retrieved on demand; memory persisted across sessions.</text>
+      <text x="876" y="365" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">retrieve and persist</text>
+
+      <!-- L2 — Models -->
+      <rect x="100" y="388" width="800" height="56" fill="#223349"/>
+      <line x1="100" y1="444" x2="900" y2="444" stroke="#cbd5e1" stroke-width="1" opacity="0.12"/>
+      <text x="124" y="421" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L2</text>
+      <text x="200" y="412" fill="#cbd5e1" font-size="16" font-weight="600">Models</text>
+      <text x="200" y="431" fill="#94a3b8" font-size="11.5" font-weight="400">Routing, fallbacks, and gateways across multiple frontier models.</text>
+      <text x="876" y="421" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">route and fall back</text>
+
+      <!-- L1 — Evals and Observability -->
+      <rect x="100" y="444" width="800" height="56" fill="#27384f"/>
+      <text x="124" y="477" fill="#64748b" font-size="10" font-weight="600" letter-spacing="1.5">L1</text>
+      <text x="200" y="468" fill="#cbd5e1" font-size="16" font-weight="600">Evals &amp; Observability</text>
+      <text x="200" y="487" fill="#94a3b8" font-size="11.5" font-weight="400">Eval harnesses, trace logging, and metrics that close the feedback loop.</text>
+      <text x="876" y="477" fill="#64748b" font-size="10" font-weight="500" text-anchor="end" letter-spacing="0.5">measure to improve</text>
+
+      <!-- Caption -->
+      <text x="100" y="534" fill="#3b82f6" font-size="9" font-weight="600" letter-spacing="2">FOCAL LAYER</text>
+      <text x="208" y="534" fill="#94a3b8" font-size="11" font-weight="400" font-style="italic">The runtime is where the agent loop lives: planning, patterns, and the critical gaps that decide production success.</text>
+    </svg>
+  </div>
+</body>
+</html>
