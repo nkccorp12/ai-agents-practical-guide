@@ -160,12 +160,33 @@ const diagrams = [
   }
 ]
 
+// beautiful-mermaid >= 1.1.2 emits CSS custom properties (var(--x)) inside SVG
+// presentation attributes and omits the background rect. Browsers resolve that,
+// but librsvg / image viewers / GitHub do not -> black boxes on transparent bg.
+// flattenSvg resolves every var(--x) to a literal hex value and injects an
+// explicit background rect, so the rendered SVG displays correctly everywhere.
+const COLORS = {
+  '--bg': theme.bg, '--fg': theme.fg, '--accent': theme.accent, '--muted': theme.muted,
+  '--_text': theme.fg, '--_text-sec': theme.muted, '--_text-muted': theme.muted,
+  '--_text-faint': '#495465', '--_line': '#757f8e', '--_arrow': theme.accent,
+  '--_node-fill': '#232e40', '--_node-stroke': '#414b5c', '--_group-fill': theme.bg,
+  '--_group-hdr': '#273243', '--_inner-stroke': '#333e4f', '--_key-badge': '#2f3a4c'
+}
+
+function flattenSvg(svg) {
+  // resolve simple var(--name) references to literal hex (skips var(--x, fallback))
+  svg = svg.replace(/var\((--[\w-]+)\)/g, (m, name) => COLORS[name] ?? m)
+  // inject an explicit background rect right after the opening <svg ...> tag
+  svg = svg.replace(/(<svg\b[^>]*>)/, `$1\n<rect width="100%" height="100%" fill="${theme.bg}"/>`)
+  return svg
+}
+
 for (const d of diagrams) {
   for (const lang of ['de', 'en']) {
     const code = lang === 'de' ? d.codeDe : d.codeEn
     const filename = `assets/diagrams/abb-${d.id}-${lang}.svg`
     try {
-      const svg = renderMermaidSVG(code, theme)
+      const svg = flattenSvg(renderMermaidSVG(code, theme))
       writeFileSync(filename, svg)
       console.log(`OK ${filename}`)
     } catch (err) {

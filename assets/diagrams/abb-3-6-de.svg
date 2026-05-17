@@ -1,63 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450.919 524.1" width="450.919" height="524.1" style="--bg:#1e293b;--fg:#cbd5e1;--accent:#3b82f6;--muted:#64748b;background:var(--bg)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450.919 524.1" width="450.919" height="524.1" style="--bg:#1e293b;--fg:#cbd5e1;--accent:#3b82f6;--muted:#64748b;background:#1e293b">
+<rect width="100%" height="100%" fill="#1e293b"/>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
   text { font-family: 'Inter', system-ui, sans-serif; }
   svg {
     /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
-    --_text:          var(--fg);
-    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
-    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
-    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
-    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
-    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
-    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
-    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
-    --_group-fill:    var(--bg);
-    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
-    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
-    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+    --_text:          #cbd5e1;
+    --_text-sec:      var(--muted, color-mix(in srgb, #cbd5e1 60%, #1e293b));
+    --_text-muted:    var(--muted, color-mix(in srgb, #cbd5e1 40%, #1e293b));
+    --_text-faint:    color-mix(in srgb, #cbd5e1 25%, #1e293b);
+    --_line:          var(--line, color-mix(in srgb, #cbd5e1 50%, #1e293b));
+    --_arrow:         var(--accent, color-mix(in srgb, #cbd5e1 85%, #1e293b));
+    --_node-fill:     var(--surface, color-mix(in srgb, #cbd5e1 3%, #1e293b));
+    --_node-stroke:   var(--border, color-mix(in srgb, #cbd5e1 20%, #1e293b));
+    --_group-fill:    #1e293b;
+    --_group-hdr:     color-mix(in srgb, #cbd5e1 5%, #1e293b);
+    --_inner-stroke:  color-mix(in srgb, #cbd5e1 12%, #1e293b);
+    --_key-badge:     color-mix(in srgb, #cbd5e1 10%, #1e293b);
   }
 </style>
 <defs>
   <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
-    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+    <polygon points="0 0, 8 2.5, 0 5" fill="#3b82f6" stroke="#3b82f6" stroke-width="0.75" stroke-linejoin="round" />
   </marker>
   <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
-    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+    <polygon points="8 0, 0 2.5, 8 5" fill="#3b82f6" stroke="#3b82f6" stroke-width="0.75" stroke-linejoin="round" />
   </marker>
 </defs>
-<polyline class="edge" data-from="L" data-to="M" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="257.93399999999997,76.9 257.93399999999997,100.9 143.96699999999998,100.9 143.96699999999998,124.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="M" data-to="T" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="143.96699999999998,178.70000000000002 143.96699999999998,226.70000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="T" data-to="CM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="143.96699999999998,280.5 143.96699999999998,336.95" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="CM" data-to="EH" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="143.96699999999998,390.75000000000006 143.96699999999998,418.30000000000007 178.52133333333333,418.30000000000007 178.52133333333333,430.30000000000007" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="EH" data-to="L" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="223.37966666666665,430.30000000000007 223.37966666666665,418.30000000000007 257.93399999999997,418.30000000000007 257.93399999999997,76.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
-<polyline class="edge" data-from="L" data-to="O" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="257.93399999999997,76.9 257.93399999999997,100.9 339.9265,100.9 339.9265,336.95" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="L" data-to="M" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="257.93399999999997,76.9 257.93399999999997,100.9 143.96699999999998,100.9 143.96699999999998,124.9" fill="none" stroke="#757f8e" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="M" data-to="T" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="143.96699999999998,178.70000000000002 143.96699999999998,226.70000000000002" fill="none" stroke="#757f8e" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="T" data-to="CM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="143.96699999999998,280.5 143.96699999999998,336.95" fill="none" stroke="#757f8e" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="CM" data-to="EH" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="143.96699999999998,390.75000000000006 143.96699999999998,418.30000000000007 178.52133333333333,418.30000000000007 178.52133333333333,430.30000000000007" fill="none" stroke="#757f8e" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="EH" data-to="L" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="223.37966666666665,430.30000000000007 223.37966666666665,418.30000000000007 257.93399999999997,418.30000000000007 257.93399999999997,76.9" fill="none" stroke="#757f8e" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="L" data-to="O" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="257.93399999999997,76.9 257.93399999999997,100.9 339.9265,100.9 339.9265,336.95" fill="none" stroke="#757f8e" stroke-width="1" marker-end="url(#arrowhead)" />
 <g class="node" data-id="L" data-label="Agent-Loop" data-shape="rectangle">
-  <rect x="202.50249999999997" y="40" width="110.863" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="257.93399999999997" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Agent-Loop</text>
+  <rect x="202.50249999999997" y="40" width="110.863" height="36.900000000000006" rx="0" ry="0" fill="#232e40" stroke="#414b5c" stroke-width="0.75" />
+  <text x="257.93399999999997" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="#cbd5e1" dy="4.55">Agent-Loop</text>
 </g>
 <g class="node" data-id="M" data-label="LLM-Kern
 (das Modell)" data-shape="rectangle">
-  <rect x="87.42399999999998" y="124.9" width="113.086" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="143.96699999999998" y="151.8" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="143.96699999999998" dy="-3.9000000000000012">LLM-Kern</tspan><tspan x="143.96699999999998" dy="16.900000000000002">(das Modell)</tspan></text>
+  <rect x="87.42399999999998" y="124.9" width="113.086" height="53.800000000000004" rx="0" ry="0" fill="#232e40" stroke="#414b5c" stroke-width="0.75" />
+  <text x="143.96699999999998" y="151.8" text-anchor="middle" font-size="13" font-weight="500" fill="#cbd5e1"><tspan x="143.96699999999998" dy="-3.9000000000000012">LLM-Kern</tspan><tspan x="143.96699999999998" dy="16.900000000000002">(das Modell)</tspan></text>
 </g>
 <g class="node" data-id="T" data-label="Primitive Tools
 Read / Write / Exec" data-shape="rectangle">
-  <rect x="68.52849999999998" y="226.70000000000002" width="150.877" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="143.96699999999998" y="253.60000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="143.96699999999998" dy="-3.9000000000000012">Primitive Tools</tspan><tspan x="143.96699999999998" dy="16.900000000000002">Read / Write / Exec</tspan></text>
+  <rect x="68.52849999999998" y="226.70000000000002" width="150.877" height="53.800000000000004" rx="0" ry="0" fill="#232e40" stroke="#414b5c" stroke-width="0.75" />
+  <text x="143.96699999999998" y="253.60000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="#cbd5e1"><tspan x="143.96699999999998" dy="-3.9000000000000012">Primitive Tools</tspan><tspan x="143.96699999999998" dy="16.900000000000002">Read / Write / Exec</tspan></text>
 </g>
 <g class="node" data-id="CM" data-label="Context-Management
 Was sieht das Modell, wann?" data-shape="rectangle">
-  <rect x="40" y="336.95" width="207.93399999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="143.96699999999998" y="363.84999999999997" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="143.96699999999998" dy="-3.9000000000000012">Context-Management</tspan><tspan x="143.96699999999998" dy="16.900000000000002">Was sieht das Modell, wann?</tspan></text>
+  <rect x="40" y="336.95" width="207.93399999999997" height="53.800000000000004" rx="0" ry="0" fill="#232e40" stroke="#414b5c" stroke-width="0.75" />
+  <text x="143.96699999999998" y="363.84999999999997" text-anchor="middle" font-size="13" font-weight="500" fill="#cbd5e1"><tspan x="143.96699999999998" dy="-3.9000000000000012">Context-Management</tspan><tspan x="143.96699999999998" dy="16.900000000000002">Was sieht das Modell, wann?</tspan></text>
 </g>
 <g class="node" data-id="EH" data-label="Error-Handling
 Retry / Fallback" data-shape="rectangle">
-  <rect x="133.663" y="430.30000000000007" width="134.575" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="200.9505" y="457.20000000000005" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="200.9505" dy="-3.9000000000000012">Error-Handling</tspan><tspan x="200.9505" dy="16.900000000000002">Retry / Fallback</tspan></text>
+  <rect x="133.663" y="430.30000000000007" width="134.575" height="53.800000000000004" rx="0" ry="0" fill="#232e40" stroke="#414b5c" stroke-width="0.75" />
+  <text x="200.9505" y="457.20000000000005" text-anchor="middle" font-size="13" font-weight="500" fill="#cbd5e1"><tspan x="200.9505" dy="-3.9000000000000012">Error-Handling</tspan><tspan x="200.9505" dy="16.900000000000002">Retry / Fallback</tspan></text>
 </g>
 <g class="node" data-id="O" data-label="Aktion / Ergebnis" data-shape="rectangle">
-  <rect x="268.93399999999997" y="336.95" width="141.985" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
-  <text x="339.9265" y="355.4" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Aktion / Ergebnis</text>
+  <rect x="268.93399999999997" y="336.95" width="141.985" height="36.900000000000006" rx="0" ry="0" fill="#232e40" stroke="#414b5c" stroke-width="0.75" />
+  <text x="339.9265" y="355.4" text-anchor="middle" font-size="13" font-weight="500" fill="#cbd5e1" dy="4.55">Aktion / Ergebnis</text>
 </g>
 </svg>
