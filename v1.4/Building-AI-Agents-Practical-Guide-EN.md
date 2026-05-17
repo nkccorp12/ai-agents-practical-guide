@@ -1803,7 +1803,7 @@ The following is a synthesis checklist, not a competing taxonomy. It maps the ni
 
 **Checklist**
 - [ ] Config hygiene: no debug flags or secrets in the production build.
-- [ ] DTOs: raw models never reach the client.
+- [ ] DTOs: raw models never reach the frontend.
 - [ ] Auth, rate limiting, and input sanitisation enforced at the gateway.
 - [ ] Connection pooling, retries with backoff, and model-tier fallback configured.
 - [ ] Multi-agent memory persistent and tested under concurrent load.
@@ -1871,7 +1871,7 @@ Chapter 9 builds the eval system: you design test cases, wire up the eval harnes
 Compact checklist for the nine production-readiness layers from Section 12.8. See Section 12.8 for the full criteria per layer.
 
 - [ ] Modular codebase and config hygiene -- no secrets or debug flags in the production build; environment-specific config via environment variables.
-- [ ] Data security: DTOs -- raw ORM models never reach the client; every API response shaped through a Data Transfer Object.
+- [ ] Data security: DTOs -- raw ORM models never reach the frontend; every API response shaped through a Data Transfer Object.
 - [ ] Security: rate limiting, input sanitisation, authentication -- all endpoints protected; user input sanitised before prompt interpolation; per-IP and per-tenant rate limits at the gateway.
 - [ ] Service layer: connection pooling, retries with exponential backoff, model-tier fallback -- pools configured with explicit size limits; retryable errors retried with backoff and jitter; complexity classifier routes to cheapest sufficient model tier.
 - [ ] Multi-agent architecture and persistent memory -- orchestrator and sub-agents have isolated context windows; long-term state in a persistent memory layer; memory pipelines tested under concurrent write load.

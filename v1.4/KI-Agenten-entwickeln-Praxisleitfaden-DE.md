@@ -1785,7 +1785,7 @@ Die folgende Liste ist eine Synthese-Checkliste, keine konkurrierende Taxonomie.
 
 **Checkliste**
 - [ ] Config-Hygiene: keine Debug-Flags oder Secrets im Production-Build.
-- [ ] DTOs: Roh-Modelle erreichen den Client nicht.
+- [ ] DTOs: Roh-Modelle erreichen das Frontend nicht.
 - [ ] Auth, Rate-Limiting und Input-Sanitization am Gateway durchgesetzt.
 - [ ] Connection-Pooling, Retries mit Backoff und Modell-Tier-Fallback konfiguriert.
 - [ ] Multi-Agent-Memory persistent und unter konkurrenter Last getestet.
