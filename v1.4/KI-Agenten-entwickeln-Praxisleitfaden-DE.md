@@ -19,6 +19,7 @@ Ausgabe Mai 2026 (Update 1.4)
 
 - [Teil I: Grundlagen und Architektur-Pattern](#teil-i-grundlagen-und-architektur-pattern)
   - [Kapitel 1: Einführung in Agentic AI](#kapitel-1-einfuhrung-in-agentic-ai)
+    - [1.5 Der Agent-Stack 2026](#15-der-agent-stack-2026)
   - [Kapitel 2: Die 11 fundamentalen agentischen Pattern](#kapitel-2-die-11-fundamentalen-agentischen-pattern)
 - [Teil II: Agentenarchitektur und Design](#teil-ii-agentenarchitektur-und-design)
   - [Kapitel 3: Die 4 kritischen Architekturlücken](#kapitel-3-die-4-kritischen-architekturlucken)
@@ -98,6 +99,26 @@ Der Weg vom funktionierenden Prototyp zum produktionsreifen Agentensystem erford
 > - Agentic Computing verändert grundlegend, wie wir Softwarearchitektur konzipieren.
 > - Produktionsreife erfordert Pattern-Wissen, Optimierung und Selbstverbesserung.
 > - Die 2026er Modelle (Claude 4.7 Opus, GPT-5, Gemini 3) erweitern den Möglichkeitsraum, ersetzen aber nicht die Architekturarbeit.
+
+### 1.5 Der Agent-Stack 2026
+
+Produktive Agentensysteme im Jahr 2026 lassen sich am besten als Schichtenstack verstehen. Jede Schicht hat eine klar definierte Zuständigkeit, und die Grenzen zwischen den Schichten bestimmen, wo Komplexität anfällt und wo sie isoliert werden kann. Die sieben Schichten unten dienen als Lesekarte für den Rest dieses Leitfadens.
+
+**Interface.** Die Interface-Schicht ist der Berührungspunkt zwischen Mensch und Agent: Terminal, Web-UI, Chat-Oberflächen und API-Endpoints. Sie übersetzt Absichten in strukturierte Eingaben, die die Runtime verarbeiten kann, und gibt Agenten-Ausgaben in einer Form zurück, die Menschen bewerten und weiterverarbeiten können.
+
+**Runtime.** Die Runtime-Schicht ist für die Ausführung des Agenten-Loops zuständig: Planung, Schrittsequenzierung, Zustandsverfolgung und Fehlerwiederherstellung. Hier leben die Architektur-Pattern aus Kapitel 3, und hier treten die kritischen Architekturlücken aus Kapitel 3 zutage. Multi-Agent-Koordination und Ausführungs-Harnesses sind ebenfalls Runtime-Belange; Abschnitt 3.6 behandelt das Harness-Design im Detail.
+
+**Protocol.** Die Protocol-Schicht standardisiert die Verbindung der Runtime zu externen Fähigkeiten. Das Model Context Protocol (MCP) ist der aufkommende Standard, der individuelle Integrationen durch einen einheitlichen Tool-Anbindungsvertrag ersetzt. Kapitel 4 behandelt die auf diesem Protokoll aufbauende Skills-Layer-Architektur.
+
+**Tools und Sandboxes.** Werkzeuge geben Agenten Reichweite: Code-Ausführung, Browser-Steuerung, Dateisystemzugriff, externe API-Aufrufe. Die Sandbox-Schicht kapselt jedes Werkzeug mit Ausführungsgrenzen, Rate-Limits und Berechtigungsprüfungen, die verhindern, dass ein fehlerhafte Werkzeug das Gesamtsystem kompromittiert. Kapitel 11 behandelt die Sicherheitsarchitektur dieser Schicht.
+
+**Knowledge und Memory.** Diese Schicht löst zwei oft verwechselte Probleme. Knowledge bezeichnet die externe Information, die ein Agent bei Bedarf abruft: Dokumente, Datenbankzeilen, Suchergebnisse. Memory bezeichnet den persistenten Zustand, den ein Agent über Sitzungen hinweg trägt: erlernte Fakten, getroffene Entscheidungen, gespeicherte Nutzerpräferenzen. Kapitel 5 behandelt die Gedächtnisarchitektur; Kapitel 7 und 8 behandeln Knowledge-Retrieval und RAG-Systeme.
+
+**Models.** Kein Produktionssystem läuft auf einem einzigen Modell. Die Modell-Schicht übernimmt das Routing von Anfragen an das jeweils geeignete Modell, verwaltet Fallbacks bei Nichtverfügbarkeit oder überschrittenem Kostenbudget und betreibt Modell-Gateways, die Kontingente durchsetzen und die Nutzung protokollieren. Anhang E enthält die Modell-Capability-Matrix, die für Routing-Entscheidungen herangezogen wird.
+
+**Evals und Observability.** Die oberste Schicht schließt den Feedback-Kreislauf. Ohne Messung gibt es keine Verbesserung: Eval-Harnesses, Trace-Logging und Qualitätskennzahlen machen das Verhalten von Agenten sichtbar und über die Zeit vergleichbar. Kapitel 9 behandelt Self-Improvement-Loops, die auf dieser Grundlage aufbauen; Kapitel 12 behandelt die betriebliche Instrumentierung, die für den Produktionsbetrieb erforderlich ist.
+
+Zusammen bilden diese sieben Schichten eine vollständige Karte des Gebiets, das dieser Leitfaden abdeckt. Jedes nachfolgende Kapitel behandelt eine oder mehrere Schichten vertieft; der Stack gibt die Koordinaten vor, um jeden Begriff im Gesamtsystem zu verorten.
 
 ---
 

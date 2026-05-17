@@ -19,6 +19,7 @@ Edition May 2026 (Update 1.4)
 
 - [Part I: Fundamentals and Architecture Patterns](#part-i-fundamentals-and-architecture-patterns)
   - [Chapter 1: Introduction to Agentic AI](#chapter-1-introduction-to-agentic-ai)
+    - [1.5 The 2026 Agent Stack](#15-the-2026-agent-stack)
   - [Chapter 2: The 11 Fundamental Agentic Patterns](#chapter-2-the-11-fundamental-agentic-patterns)
 - [Part II: Agent Architecture and Design](#part-ii-agent-architecture-and-design)
   - [Chapter 3: The 4 Critical Architecture Gaps](#chapter-3-the-4-critical-architecture-gaps)
@@ -100,6 +101,26 @@ The path from a working prototype to a production-ready agent system requires ma
 > - Agentic computing fundamentally changes how we conceive software architecture.
 > - Production-readiness requires pattern knowledge, optimization, and self-improvement.
 > - As of 2026, frontier models (Claude 4.7 Opus and Gemini 3 Pro at 1M tokens, GPT-5 at 400k tokens) provide large context windows and reasoning modes, but architectural discipline still decides success.
+
+### 1.5 The 2026 Agent Stack
+
+Production agent systems in 2026 are best understood as a layered stack. Each layer has a defined responsibility, and the boundaries between layers determine where complexity lives and where it can be isolated. The seven layers below serve as a reading map for the rest of this guide.
+
+**Interface.** The interface layer is where humans and agents meet: terminals, web UIs, chat surfaces, and API endpoints. Its job is to translate intent into structured inputs the runtime can act on, and to render agent outputs in a form humans can evaluate and act upon.
+
+**Runtime.** The runtime layer is responsible for executing the agent loop: planning, step sequencing, state tracking, and error recovery. This is where the architectural patterns described in Chapter 2 live, and where the critical gaps of Chapter 3 surface. Multi-agent coordination and execution harnesses are also runtime concerns; Section 3.6 covers harness design in detail.
+
+**Protocol.** The protocol layer standardizes how the runtime connects to external capabilities. The Model Context Protocol (MCP) is the emerging standard that replaces custom, one-off integrations with a uniform tool-attachment contract. Chapter 4 covers the skills layer architecture built on this protocol.
+
+**Tools and Sandboxes.** Tools are what give agents reach: code execution, browser control, file system access, external API calls. The sandbox layer wraps each tool with execution boundaries, rate limits, and permission checks that prevent one misbehaving tool from compromising the whole system. Chapter 11 covers the security architecture governing this layer.
+
+**Knowledge and Memory.** This layer solves two distinct problems that are often conflated. Knowledge is the external information an agent retrieves on demand: documents, database rows, search results. Memory is the persistent state an agent carries across sessions: facts learned, decisions made, user preferences stored. Chapter 5 covers memory architecture; Chapters 7 and 8 cover knowledge retrieval and RAG systems.
+
+**Models.** No production system runs on a single model. The model layer handles routing requests to the right model for each subtask, managing fallbacks when a model is unavailable or exceeds cost thresholds, and operating model gateways that enforce quotas and log usage. Appendix E provides the model capability matrix used for routing decisions.
+
+**Evals and Observability.** The top layer closes the feedback loop. Without measurement there is no improvement: eval harnesses, trace logging, and quality metrics make agent behavior visible and comparable over time. Chapter 9 covers self-improvement loops built on this foundation; Chapter 12 covers the operational instrumentation required for production.
+
+Together these seven layers form a complete map of the terrain this guide covers. Each subsequent chapter addresses one or more layers in depth; the stack gives you the coordinates to locate any concept within the larger system.
 
 ---
 
