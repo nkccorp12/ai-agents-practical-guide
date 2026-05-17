@@ -1841,15 +1841,15 @@ Kapitel 9 baut das Eval-System: Testfälle werden entworfen, der Eval-Harness ve
 
 Kompakte Checkliste der neun Production-Readiness-Schichten aus Abschnitt 12.8. Details siehe Abschnitt 12.8.
 
-- [ ] Modulare Codebase und Config-Hygiene -- keine Secrets oder Debug-Flags im Production-Build; umgebungsspezifische Konfiguration ueber Umgebungsvariablen.
-- [ ] Datensicherheit: DTOs -- Roh-Modelle erreichen den Client nicht; jede API-Antwort wird ueber ein Data Transfer Object geformt.
-- [ ] Security: Rate-Limiting, Input-Sanitization, Authentifizierung -- alle Endpunkte geschuetzt; Nutzereingaben vor Prompt-Interpolation sanitisiert; per-IP- und per-Tenant-Rate-Limits am Gateway.
-- [ ] Service-Layer: Connection-Pooling, Retries mit exponentiellem Backoff, Modell-Tier-Fallback -- Pools mit expliziten Groessenlimits konfiguriert; wiederholbare Fehler mit Backoff und Jitter wiederholt; Komplexitaets-Klassifikator leitet an guenstigstes Tier weiter.
+- [ ] Modulare Codebase und Config-Hygiene -- keine Secrets oder Debug-Flags im Production-Build; umgebungsspezifische Konfiguration über Umgebungsvariablen.
+- [ ] Datensicherheit: DTOs -- Roh-Modelle erreichen den Client nicht; jede API-Antwort wird über ein Data Transfer Object geformt.
+- [ ] Security: Rate-Limiting, Input-Sanitization, Authentifizierung -- alle Endpunkte geschützt; Nutzereingaben vor Prompt-Interpolation sanitisiert; per-IP- und per-Tenant-Rate-Limits am Gateway.
+- [ ] Service-Layer: Connection-Pooling, Retries mit exponentiellem Backoff, Modell-Tier-Fallback -- Pools mit expliziten Größenlimits konfiguriert; wiederholbare Fehler mit Backoff und Jitter wiederholt; Komplexitäts-Klassifikator leitet an günstigstes Tier weiter.
 - [ ] Multi-Agent-Architektur und persistentes Memory -- Orchestrator und Sub-Agents haben isolierte Kontextfenster; Langzeitstatus in persistentem Memory-Layer; Memory-Pipelines unter konkurrenter Schreiblast getestet.
 - [ ] API-Gateway: Auth-Endpunkte, Session-Management, SSE-Streaming -- Tokens am Gateway validiert; Session-Lebenszyklus (Erstellung, Refresh, Widerruf) explizit behandelt; SSE-Verbindungen propagieren `AbortSignal`.
 - [ ] Observability -- strukturierte Logs, verteilte Traces und Metriken-Dashboard vor Go-Live in Betrieb; p50/p95/p99-Latenz, Fehlerraten und Cache-Hitrate pro Endpunkt und Tenant verfolgt.
-- [ ] Eval-Framework mit LLM-as-Judge -- Regressions-Eval-Suite deckt zentrale User-Journeys ab; mindestens ein automatisierter Judge-Prompt bewertet Ausgabequalitaet vor jedem Deployment.
-- [ ] Stress-Testing unter realistischer Last -- Lasttest unter erwarteter Peak-Concurrency durchgefuehrt; Bottlenecks behoben; Graceful-Degradation (Queuing, Throttling, verstaendliche Fehlermeldungen) verifiziert.
+- [ ] Eval-Framework mit LLM-as-Judge -- Regressions-Eval-Suite deckt zentrale User-Journeys ab; mindestens ein automatisierter Judge-Prompt bewertet Ausgabequalität vor jedem Deployment.
+- [ ] Stress-Testing unter realistischer Last -- Lasttest unter erwarteter Peak-Concurrency durchgeführt; Bottlenecks behoben; Graceful-Degradation (Queuing, Throttling, verständliche Fehlermeldungen) verifiziert.
 
 ## Anhang B: Benchmarking-Vorlagen
 
