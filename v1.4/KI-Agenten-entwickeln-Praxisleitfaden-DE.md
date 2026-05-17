@@ -344,6 +344,10 @@ Ein Harness ist alles, was ein LLM an einen laufenden Aufgabenzyklus bindet. In 
 
 Kontextmanagement innerhalb des Harness wird ausführlich in Kapitel 5 behandelt. Der Skills-Layer, einschließlich des Progressive-Disclosure-Musters zur Vermeidung von Prompt-Bloat, ist in Abschnitt 4.6 beschrieben.
 
+![Abbildung 3.6](../assets/diagrams/abb-3-6-de.svg)
+
+> *Abbildung 3.6: Das Agent-Harness: Loop, Tools, Context-Management und Error-Handling um den Modell-Kern*
+
 ---
 
 ## Kapitel 4: Skills-Layer-Architektur

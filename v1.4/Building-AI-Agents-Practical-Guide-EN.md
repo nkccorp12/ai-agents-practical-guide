@@ -351,6 +351,10 @@ A harness is everything that binds an LLM to a running task cycle. At minimum it
 
 Context management within the harness is covered in depth in Chapter 5. The skills layer, including the progressive disclosure pattern used to keep skill definitions below the prompt-bloat threshold, is covered in section 4.6.
 
+![Figure 3.6](../assets/diagrams/abb-3-6-en.svg)
+
+> *Figure 3.6: The agent harness: loop, tools, context management, and error handling around the model core*
+
 ---
 
 ## Chapter 4: Skills Layer Architecture
