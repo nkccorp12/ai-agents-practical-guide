@@ -54,6 +54,7 @@ Ausgabe Mai 2026 (Update 1.4)
     - [12.6 Rollback und Incident Response](#126-rollback-und-incident-response)
     - [12.7 Kostensteuerung](#127-kostensteuerung)
     - [12.8 Production-Readiness: Die Schichten-Checkliste](#128-production-readiness-die-schichten-checkliste)
+    - [12.9 Production-Monitoring](#129-production-monitoring)
 - [Anhänge](#anhange)
   - [Anhang A: Architektur-Checklisten](#anhang-a-architektur-checklisten)
   - [Anhang B: Benchmarking-Vorlagen](#anhang-b-benchmarking-vorlagen)
@@ -1782,6 +1783,33 @@ Die folgende Liste ist eine Synthese-Checkliste, keine konkurrierende Taxonomie.
 - [ ] Strukturierte Logs, Traces und Metriken-Dashboard in Betrieb.
 - [ ] Eval-Suite mit LLM-as-Judge vor jedem Deployment bestanden.
 - [ ] Lasttest unter realistischer Concurrency durchgeführt; Graceful Degradation verifiziert.
+
+
+
+### 12.9 Production-Monitoring
+
+Kapitel 9 baut das Eval-System: Testfälle werden entworfen, der Eval-Harness verdrahtet und vor jedem Deployment ausgeführt. Abschnitt 12.9 beschreibt, was nach dem Deployment passiert -- die operative Rückkopplungsschleife eines laufenden Prod-Systems. Produktionstraffic bringt Fehlermodi an die Oberfläche, die kein Vorab-Test vollständig abdeckt; der Großteil der realen Edge Cases wird erstmals von echten Nutzern unter echten Bedingungen entdeckt.
+
+**Vollständiges Conversation-Recording.** Jeder Turn jeder Konversation wird gespeichert: Nutzereingabe, alle Tool-Calls mit Argumenten und Rückgabewerten, Modellantworten und Metadaten (Zeitstempel, Modellversion, Tenant, Session-ID). Die Ursache der meisten Produktionsfehler ist nicht im Stacktrace sichtbar -- sie steckt in der Konversation, die zum falschen Tool-Call oder zum missverstandenen Intent geführt hat. Ohne das vollständige Transkript debuggt man blind. Transkripte kommen in denselben WORM-Speicher wie in Abschnitt 12.5 beschrieben, mit denselben Aufbewahrungsregeln: Hash-Referenz im Span, Klartext im konformen Storage.
+
+**Annotation-Queue.** Nicht alles reviewen. Gefiltert wird auf Fälle mit echtem Erkenntnisgewinn: explizites Negativfeedback (Thumbs-down, Neugenerierung, Session-Abbruch), kostenintensive Interaktionen (Ausreißer bei Token-Zahlen, lange Tool-Call-Ketten) und Anomalien aus automatisierten Monitoren (unerwartete Tool-Auswahl, ungewöhnlich lange oder kurze Antworten, Latenz-Spitzen). Für jede reviewte Konversation wird ein einfaches Rubric angewendet: Wurde der Nutzer-Intent korrekt verstanden? Hat der Agent den richtigen Pfad gewählt? War die Antwort hilfreich und korrekt formatiert? Rubric-Scores werden zusammen mit dem Transkript gespeichert und akkumulieren sich zu einem gelabelten Datensatz.
+
+**Automatisierte LLM-Evals auf einem Prod-Sample.** Judges über 100 % des Traffics zu laufen ist selten wirtschaftlich. Stattdessen wird ein repräsentatives Sample gezogen -- stratifiziert nach Tenant, Use-Case und Tageszeit -- und automatisierte Eval-Prompts werden darüber ausgeführt. Die drei verlässlichsten Eval-Achsen im Produktionsbetrieb sind: Themen-Relevanz (ist der Agent im Scope geblieben?), Tool-Auswahl-Genauigkeit (wurde das richtige Tool für die Aufgabe gewählt?) und Format-Treue (entspricht der Output dem erwarteten Schema oder Stil?). Eval-Ergebnisse fließen in dasselbe Dashboard wie technische Metriken, sodass Qualitätsregressionen neben Latenz- und Fehlerratensignalen sichtbar sind.
+
+**Closed Loop.** Eine in der Produktion entdeckte schlechte Konversation folgt einem festen Pfad: Sie wird dem Eval-Dataset hinzugefügt (Abschnitt 9.2, Eval-Harness), der Fehler wird in der Testumgebung reproduziert, Prompt, Tool-Definition oder Routing-Logik werden gefixt, der Fix wird gegen alle bestehenden Evals geprüft und anschließend in der Produktion an derselben Konversationsklasse validiert. Querverweis: Die Strategie zur kontinuierlichen Verbesserung in Kapitel 12 (Abschnitt 12.3) beschreibt den äußeren Iterationszyklus -- dieser Loop ist der innere Mechanismus, der neue Beispiele einbringt. Tests decken unter kontrollierten Bedingungen einen erheblichen Teil der Regressionen ab, aber der Großteil der echten Edge Cases wird erst durch reale Nutzer unter realen Bedingungen sichtbar. Production-Monitoring ist kein Sicherheitsnetz -- es ist die primäre Signalquelle für ein Agentensystem, das sich im Laufe der Zeit verbessert.
+
+**Anti-Pattern**
+- Nur Fehler aufzeichnen, nicht vollständige Konversationen; der Kontext vor dem Fehler enthält die handlungsrelevante Information.
+- Ein zufälliges Sample reviewen ohne Filterung; hochwertige Events sind selten und werden durch unauffälligen Traffic verdünnt.
+
+**Checkliste**
+- [ ] Vollständige Konversations-Transkripte gespeichert (alle Turns, Tool-Calls, Metadaten) in konformem WORM-Storage.
+- [ ] Annotation-Queue filtert nach: Negativfeedback, kostenintensiven Interaktionen, automatisierten Anomalien.
+- [ ] Rubric definiert (Intent verstanden? Richtiger Pfad? Hilfreiche Antwort?) und Scores pro reviewter Konversation gespeichert.
+- [ ] LLM-Eval läuft auf stratifiziertem Prod-Sample: Themen-Relevanz, Tool-Auswahl-Genauigkeit, Format-Treue.
+- [ ] Eval-Ergebnisse auf demselben Dashboard wie Latenz- und Fehlerratemetriken.
+- [ ] Schlechte Konversationen werden vor einem Fix dem Eval-Dataset (Abschnitt 9.2) hinzugefügt.
+- [ ] Closed Loop: Fix -> Eval-Suite besteht -> Produktionsvalidierung an derselben Konversationsklasse.
 
 
 

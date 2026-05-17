@@ -54,6 +54,7 @@ Edition May 2026 (Update 1.4)
     - [12.6 Rollback and Incident Response](#126-rollback-and-incident-response)
     - [12.7 Cost Control](#127-cost-control)
     - [12.8 Production Readiness: The Layer Checklist](#128-production-readiness-the-layer-checklist)
+    - [12.9 Production Monitoring](#129-production-monitoring)
 - [Appendices](#appendices)
   - [Appendix A: Architecture Checklists](#appendix-a-architecture-checklists)
   - [Appendix B: Benchmarking Templates](#appendix-b-benchmarking-templates)
@@ -1800,6 +1801,33 @@ The following is a synthesis checklist, not a competing taxonomy. It maps the ni
 - [ ] Structured logs, traces, and a metrics dashboard operational.
 - [ ] Eval suite with LLM-as-judge passing before each deployment.
 - [ ] Load test run at realistic concurrency; graceful degradation verified.
+
+
+
+### 12.9 Production Monitoring
+
+Chapter 9 builds the eval system: you design test cases, wire up the eval harness, and run it before each deployment. Section 12.9 is about what happens after the deployment lands -- the operational feedback loop of a live system. Production traffic surfaces failure modes that no pre-deployment test suite fully anticipates; the majority of real-world edge cases are first discovered by actual users.
+
+**Complete conversation recording.** Store every turn of every conversation: user input, all tool calls with arguments and return values, model responses, and metadata (timestamp, model version, tenant, session ID). The root cause of most production bugs is not visible in a stacktrace -- it sits in the conversation that led to the wrong tool call or the misunderstood intent. Without the full transcript you are debugging blind. Keep transcripts in the same WORM store described in Section 12.5, with the same retention rules. Hash references in spans, plain text in compliant storage.
+
+**Annotation queue.** Do not attempt to review everything. Filter down to the cases worth human attention: explicit negative feedback (thumbs-down, regeneration, session abandonment), high-cost interactions (outlier token counts, long tool-call chains), and anomalies flagged by automated monitors (unexpected tool selections, unusually long or short responses, latency spikes). For each reviewed conversation apply a lightweight rubric: Was the user intent correctly understood? Did the agent choose the right path? Was the final response helpful and correctly formatted? Store rubric scores alongside the transcript so they accumulate into a labelled dataset.
+
+**Automated LLM evals on a production sample.** Running judges over 100% of traffic is rarely cost-effective. Instead, sample a representative slice -- stratified by tenant, use-case, and time of day -- and run automated eval prompts against it. The three most reliable eval axes for production monitoring are topic relevance (did the agent stay in scope?), tool-selection accuracy (did it pick the right tool for the job?), and format fidelity (did the output match the expected schema or style). Eval results feed the same dashboard as technical metrics so quality regressions are visible alongside latency and error-rate signals.
+
+**Closed-loop improvement.** A degraded conversation found in production should follow a fixed path: add it to the eval dataset (Section 9.2, Eval Harness), reproduce the failure in the test environment, fix the prompt, tool definition, or routing logic, verify the fix passes all existing evals, and then validate in production against the same conversation class. Cross-reference: the Continuous Improvement strategy in Chapter 12 (Section 12.3) describes the outer iteration cycle; this loop is the inner mechanic that feeds new examples into it. Tests catch a significant portion of regressions in controlled conditions, but the majority of genuine edge cases are discovered by real users under real conditions. Production monitoring is not a backstop -- it is the primary source of signal for an agent system that improves over time.
+
+**Anti-pattern**
+- Recording only errors, not full conversations; the context before the error is where the actionable insight lives.
+- Reviewing a random sample without filtering; high-signal events are rare and diluted by uneventful traffic.
+
+**Checklist**
+- [ ] Full conversation transcripts recorded (all turns, tool calls, metadata) in compliant WORM storage.
+- [ ] Annotation queue filters on: negative feedback, high-cost interactions, automated anomalies.
+- [ ] Rubric defined (intent understood? correct path? helpful response?) and scores stored per reviewed conversation.
+- [ ] LLM eval running on a stratified production sample: topic relevance, tool-selection accuracy, format fidelity.
+- [ ] Eval results on the same dashboard as latency and error-rate metrics.
+- [ ] Degraded conversations are added to the eval dataset (Section 9.2) before a fix is shipped.
+- [ ] Closed loop: fix -> eval suite passes -> production validation on the same conversation class.
 
 
 
