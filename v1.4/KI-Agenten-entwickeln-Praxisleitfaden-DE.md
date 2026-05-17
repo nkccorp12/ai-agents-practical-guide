@@ -23,6 +23,7 @@ Ausgabe Mai 2026 (Update 1.4)
   - [Kapitel 2: Die 11 fundamentalen agentischen Pattern](#kapitel-2-die-11-fundamentalen-agentischen-pattern)
 - [Teil II: Agentenarchitektur und Design](#teil-ii-agentenarchitektur-und-design)
   - [Kapitel 3: Die 4 kritischen Architekturlücken](#kapitel-3-die-4-kritischen-architekturlucken)
+    - [3.6 Das Agent-Harness](#36-das-agent-harness)
   - [Kapitel 4: Skills-Layer-Architektur](#kapitel-4-skills-layer-architektur)
     - [4.6 Skills in der Praxis: Anthropic-Format und eigene Erweiterung](#46-skills-in-der-praxis-anthropic-format-und-eigene-erweiterung)
   - [Kapitel 5: Agenten-Gedächtnisarchitektur](#kapitel-5-agenten-gedachtnisarchitektur)
@@ -326,6 +327,20 @@ Die zentrale Erkenntnis der Architekturlücken-Analyse lautet: Einzelne Komponen
 > - Planungstool, Sub-Agents, File-System-Zugriff und detaillierter Prompt-Aufbau müssen als ein System zusammenwirken.
 > - Einzelne Komponenten allein liefern wenig, der Mehrwert entsteht durch ihr Zusammenspiel.
 > - Der detaillierte Prompt-Aufbau ist der Dirigent, der alle anderen Komponenten orchestriert.
+
+### 3.6 Das Agent-Harness
+
+Die vier Architekturlücken aus den Abschnitten 3.1 bis 3.5 lösen jeweils ein spezifisches Problem. Was sie zu einem funktionierenden Agenten verbindet, ist die Struktur, die sie zusammenführt: das Agent-Harness.
+
+Ein Harness ist alles, was ein LLM an einen laufenden Aufgabenzyklus bindet. In seiner minimalen Form besteht es aus vier Teilen: dem Steuerungsloop, der den Agenten von Schritt zu Schritt vorantreibt, dem Satz primitiver Tools, die der Agent aufrufen kann, dem Mechanismus, der verwaltet, welcher Kontext dem Modell in jedem Schritt gezeigt wird, und der Fehlerbehandlungslogik, die bestimmt, was passiert, wenn ein Tool fehlschlägt oder das Modell eine unbrauchbare Antwort liefert. Das LLM ist der Motor; das Harness ist das Chassis.
+
+**Warum sich dasselbe Modell in verschiedenen Produkten anders anfühlt.** Claude Code, Cursor und Codex laufen alle auf denselben Basismodellen. Ihr Verhalten und ihre Ausgaben fühlen sich für Anwender dennoch deutlich unterschiedlich an. Der Unterschied liegt nahezu vollständig im Harness: welche Tools exponiert sind und wie sie beschrieben werden, wie viel der Konversationshistorie erhalten oder zusammengefasst wird, zu welchem Zeitpunkt Dateiinhalt in den Kontext injiziert wird, wie Fehler wiederholt oder gemeldet werden und wie der System-Prompt die Rolle des Modells rahmt. Zwei Agenten, die auf demselben Modell laufen, aber unterschiedliche Harness-Designs haben, sind aus praktischer Sicht verschiedene Produkte.
+
+**Das minimale funktionierende Harness.** Ein nützlicher Referenzpunkt ist das kleinste Setup, das tatsächlich läuft: eine While-Schleife, die weiterläuft, bis die Aufgabe abgeschlossen ist oder ein Schrittelimit erreicht wird, ein einzelnes Read-File-Tool, damit der Agent externe Inhalte konsultieren kann, und eine einfache Textdatei als Scratch-Memory. Diese dreiteilige Anordnung zeigt bereits die wesentlichen Harness-Eigenschaften: Sie hat einen Loop, sie hat Tool-Zugriff, und sie verwaltet Zustand außerhalb des Kontextfensters. Alles in Produktionssystemen ist eine Ausarbeitung dieses Grundgerüsts.
+
+**Das Harness als schließende Klammer.** Die Abschnitte 3.1 bis 3.5 haben die vier Bausteine einzeln beschrieben. Das Harness ist die Struktur, in der sie zusammenlaufen. Das Planungstool (3.1) läuft innerhalb des Loops und schreibt seine Ausgabe ins File-System (3.3). Sub-Agents (3.2) werden vom selben Loop mit isolierten Kontext-Slices gestartet. Der detaillierte Prompt-Aufbau (3.4) steuert die Entscheidungslogik des Loops. Ohne das Harness bleiben die vier Komponenten unverbunden; mit ihm bilden sie einen einzigen Betriebszyklus.
+
+Kontextmanagement innerhalb des Harness wird ausführlich in Kapitel 5 behandelt. Der Skills-Layer, einschließlich des Progressive-Disclosure-Musters zur Vermeidung von Prompt-Bloat, ist in Abschnitt 4.6 beschrieben.
 
 ---
 

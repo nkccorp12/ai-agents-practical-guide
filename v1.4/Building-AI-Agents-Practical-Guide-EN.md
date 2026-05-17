@@ -23,6 +23,7 @@ Edition May 2026 (Update 1.4)
   - [Chapter 2: The 11 Fundamental Agentic Patterns](#chapter-2-the-11-fundamental-agentic-patterns)
 - [Part II: Agent Architecture and Design](#part-ii-agent-architecture-and-design)
   - [Chapter 3: The 4 Critical Architecture Gaps](#chapter-3-the-4-critical-architecture-gaps)
+    - [3.6 The Agent Harness](#36-the-agent-harness)
   - [Chapter 4: Skills Layer Architecture](#chapter-4-skills-layer-architecture)
     - [4.6 Skills in Practice: Anthropic Format and Extensions](#46-skills-in-practice-anthropic-format-and-extensions)
   - [Chapter 5: Agent Memory Architecture](#chapter-5-agent-memory-architecture)
@@ -333,6 +334,20 @@ The central finding of the architecture-gap analysis is: individual components a
 > - Individual components alone deliver little, value emerges from their interplay.
 > - The detailed prompter is the conductor that orchestrates all other components.
 > - Even with 2026 frontier models offering large context windows (1M on Claude 4.7 Opus and Gemini 3 Pro, 400k on GPT-5), file-system access plus prompt caching remains the most reliable scaling strategy.
+
+### 3.6 The Agent Harness
+
+The four architectural gaps described in sections 3.1 through 3.5 each solve a distinct problem. What turns them into a working agent is the structure that connects them: the agent harness.
+
+A harness is everything that binds an LLM to a running task cycle. At minimum it consists of four parts: the control loop that drives the agent from one step to the next, the set of primitive tools the agent can invoke, the mechanism that manages what context the model sees at each step, and the error-handling logic that decides what happens when a tool fails or the model returns an unusable response. The LLM is the engine; the harness is the chassis.
+
+**Why the same model feels different across products.** Claude Code, Cursor, and Codex all run on the same base models. Their outputs and behavior feel noticeably different to users. The difference is almost entirely in the harness: which tools are exposed and how they are described, how much of the conversation history is retained versus summarized, at what point file content is injected into context, how failures are retried or surfaced, and how the system prompt frames the model's role. Two agents powered by the same model but different harness designs are, from a practical standpoint, different products.
+
+**The minimal working harness.** A useful mental anchor is the smallest setup that actually runs: a while-loop that continues until the task is done or a step limit is reached, a single read-file tool so the agent can consult external content, and a plain text file used as scratch memory. That three-part arrangement already exhibits the key harness properties: it loops, it has tool access, and it maintains state outside the context window. Everything in production is an elaboration of this skeleton.
+
+**The harness as a closing bracket.** Sections 3.1 through 3.5 identified the four building blocks individually. The harness is the structure in which they converge. The planning tool (3.1) runs inside the loop and writes its output to the file system (3.3). Sub-agents (3.2) are spawned by the same loop with isolated context slices. The detailed prompter (3.4) governs the loop's decision logic. Without the harness, the four components remain independent; with it, they form a single operating cycle.
+
+Context management within the harness is covered in depth in Chapter 5. The skills layer, including the progressive disclosure pattern used to keep skill definitions below the prompt-bloat threshold, is covered in section 4.6.
 
 ---
 
