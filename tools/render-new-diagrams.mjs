@@ -121,22 +121,22 @@ const diagrams = [
   E --> OG["Output guardrails<br/>Grounding, Redaction"]
   OG --> R["Answer to user"]
   OG -->|escalate| X`
-  }
-  ,{
+  },
+  {
     id: '3-6',
     captionDe: 'Das Agent-Harness: Loop, Tools, Context-Management und Error-Handling um den Modell-Kern',
     captionEn: 'The agent harness: loop, tools, context management, and error handling around the model core',
     codeDe: `flowchart TD
-  M["LLM-Kern<br/>(das Modell)"] --> L["Agent-Loop"]
-  L --> T["Primitive Tools<br/>Read / Write / Exec"]
+  L["Agent-Loop"] --> M["LLM-Kern<br/>(das Modell)"]
+  M --> T["Primitive Tools<br/>Read / Write / Exec"]
   T --> CM["Context-Management<br/>Was sieht das Modell, wann?"]
   CM --> EH["Error-Handling<br/>Retry / Fallback"]
   EH --> L
   L --> O["Aktion / Ergebnis"]`,
     codeEn: `flowchart TD
-  M["LLM core<br/>(the model)"] --> L["Agent loop"]
-  L --> T["Primitive tools<br/>Read / Write / Exec"]
-  T --> CM["Context management<br/>What the model sees, when"]
+  L["Agent loop"] --> M["LLM core<br/>(the model)"]
+  M --> T["Primitive tools<br/>Read / Write / Exec"]
+  T --> CM["Context management<br/>What the model sees, and when"]
   CM --> EH["Error handling<br/>Retry / fallback"]
   EH --> L
   L --> O["Action / result"]`
